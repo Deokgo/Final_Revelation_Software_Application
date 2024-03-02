@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
         Grab_Item();
         Dead();
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||  Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             idle = false;
             run = true;
@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
     void Run()
     {
         if (run)
-        {        
+        {
             go.transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime);
             go.transform.Translate(Vector2.up * Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
         }
@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
     ////////////////////
     //DATABASE CODES...
     ////////////////////
-    
+
     /*
     void OnCollisionEnter2D(Collision2D col)
     {
