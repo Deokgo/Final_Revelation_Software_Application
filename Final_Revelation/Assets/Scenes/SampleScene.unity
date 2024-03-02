@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 31329405}
   m_Layer: 0
   m_Name: Paper4
-  m_TagString: Untagged
+  m_TagString: Paper4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -609,6 +609,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
+--- !u!4 &63069565 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+  m_PrefabInstance: {fileID: 1823850826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &126156878
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,9 +878,10 @@ GameObject:
   - component: {fileID: 168151520}
   - component: {fileID: 168151519}
   - component: {fileID: 168151518}
+  - component: {fileID: 168151521}
   m_Layer: 0
   m_Name: Ghost1
-  m_TagString: Enemy
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -887,7 +895,7 @@ Transform:
   m_GameObject: {fileID: 168151516}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.74, y: 15.24, z: -0.03030528}
+  m_LocalPosition: {x: -7.86, y: 15.3, z: -0.03030528}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -993,6 +1001,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &168151521
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168151516}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8125, y: 1.125}
+    newSize: {x: 0.8125, y: 1.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8125, y: 1.125}
+  m_EdgeRadius: 0
 --- !u!1 &215181045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1281,7 @@ GameObject:
   - component: {fileID: 460782945}
   m_Layer: 0
   m_Name: Paper2
-  m_TagString: Untagged
+  m_TagString: Paper2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1317,6 +1370,8 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
 --- !u!1 &461272972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,13 +1726,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be92bc620f1a9e4db6b35f5489e0f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  cameraSpeed: 2
+  playerTransform: {fileID: 1278317264}
+  smoothing: 0.001
 --- !u!1 &624933967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1830,7 @@ GameObject:
   - component: {fileID: 679898826}
   m_Layer: 5
   m_Name: lbl_paper
-  m_TagString: Untagged
+  m_TagString: PaperText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12420,6 +12475,8 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
 --- !u!1 &1278317261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12549,6 +12606,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   go: {fileID: 0}
   input: 
+  playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
 --- !u!114 &1278317266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12590,7 +12651,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1278317268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12733,7 +12794,7 @@ GameObject:
   - component: {fileID: 1307808736}
   m_Layer: 0
   m_Name: Paper5
-  m_TagString: Untagged
+  m_TagString: Paper5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12822,6 +12883,8 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
 --- !u!1 &1333085726
 GameObject:
   m_ObjectHideFlags: 0
@@ -13476,7 +13539,7 @@ GameObject:
   - component: {fileID: 1499328934}
   m_Layer: 5
   m_Name: lbl_key
-  m_TagString: Untagged
+  m_TagString: KeyText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13897,7 +13960,7 @@ GameObject:
   - component: {fileID: 1674202333}
   m_Layer: 0
   m_Name: Paper3
-  m_TagString: Untagged
+  m_TagString: Paper3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13986,6 +14049,8 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
 --- !u!1 &1725892517
 GameObject:
   m_ObjectHideFlags: 0
@@ -30467,6 +30532,83 @@ Transform:
   - {fileID: 1021804982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1823850826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2080624319}
+    m_Modifications:
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1760428
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452570081648090284, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452570081648090284, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2080624320}
+    - target: {fileID: 3452570081648090284, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Disappear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452570081648090284, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: disaPAPER, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452570081648090284, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327866240826931658, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_Name
+      value: InteractableBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
 --- !u!1 &1831680802
 GameObject:
   m_ObjectHideFlags: 0
@@ -30810,9 +30952,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2080624319}
   - component: {fileID: 2080624318}
+  - component: {fileID: 2080624320}
   m_Layer: 0
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30881,9 +31024,28 @@ Transform:
   m_LocalPosition: {x: 19.257624, y: 32.190002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 63069565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 102.722}
+--- !u!114 &2080624320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080624317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64781fc3c214f204b8852f3013dd1996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 0}
+  interactionRange: 1
+  interactKey: 101
+  playerId: 1
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
 --- !u!1 &2102968323
 GameObject:
   m_ObjectHideFlags: 0

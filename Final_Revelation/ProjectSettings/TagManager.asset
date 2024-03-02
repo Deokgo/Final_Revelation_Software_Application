@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Enemy
   - Paper1
+  - Ghost
+  - Paper2
+  - Paper3
+  - Paper4
+  - Paper5
+  - PaperText
+  - KeyText
+  - Key
   layers:
   - Default
   - TransparentFX

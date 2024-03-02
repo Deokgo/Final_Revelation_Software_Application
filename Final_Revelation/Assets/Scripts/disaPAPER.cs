@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Data;
+using TMPro;
 
 
 public class disaPAPER : MonoBehaviour
@@ -14,11 +15,21 @@ public class disaPAPER : MonoBehaviour
     public float interactionRange = 1.0f; // Set the range as needed
     public KeyCode interactKey = KeyCode.E;
     public int playerId = 1;
-
+    public TextMeshProUGUI paperText;
+    public TextMeshProUGUI keyText;
 
     void Start()
     {
-        //player = GameObject.FindWithTag("Player"); // Ensure your player is tagged as "Player"
+        paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
+        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
+        if (paperText == null)
+        {
+            Debug.LogError("No GameObject with tag 'PaperText' found.");
+        }
+        if (keyText == null)
+        {
+            Debug.LogError("No GameObject with tag 'KeyText' found.");
+        }
     }
 
     void Update()
@@ -29,6 +40,15 @@ public class disaPAPER : MonoBehaviour
     public void Disappear()
     {
         string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
+        if (gameElementTag == "Key")
+        {
+            keyText.text = "1/1";
+        }
+        else if (gameElementTag.Substring(0, 5) == "Paper")
+        {
+            int currentPapers = int.Parse(paperText.text.Split('/')[0]);
+            paperText.text = (currentPapers + 1).ToString() + "/5";
+        }
         StartCoroutine(storeCollectedItem("http://localhost/unity/gameElementAdd.php", playerId, gameElementTag));
         gameObject.SetActive(false);
     }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Data;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
@@ -14,12 +16,21 @@ public class Movement : MonoBehaviour
     public float speedLimiter = 0.7f;
     public Rigidbody2D rb;
     public GameObject go;
+    public TextMeshProUGUI paperText;
+    public TextMeshProUGUI keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
+
+    public int playerId = 1;
+    public int paperCollected = 0;    // Number of papers collected
+    public int keyCollected = 0;      // Number of keys collected
+    public int remainingHealth = 3; // The player's remaining health
 
     // Start is called before the first frame update
     void Start()
     {
+        paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
+        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         Init();
     }
 
@@ -116,17 +127,27 @@ public class Movement : MonoBehaviour
     //DATABASE CODES...
     ////////////////////
 
-    /*
+
     void OnCollisionEnter2D(Collision2D col)
     {
-        //StartCoroutine(retrieveCollectedItems("http://localhost/unity/FetchData.php"));
+        if (col.gameObject.CompareTag("Ghost"))
+        {
+            paperCollected = int.Parse(paperText.text.Split('/')[0]);
+            keyCollected = int.Parse(keyText.text.Split('/')[0]);
+            remainingHealth -= 1;
+            StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
+        }
     }
 
-    IEnumerator storeCollectedItem(string url, string item, string pow)
+    IEnumerator updatePlayer(string url, int playerId, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth)
     {
         WWWForm form = new WWWForm();
-        form.AddField("item", item);
-        form.AddField("power", pow);
+        form.AddField("player_id", playerId);
+        form.AddField("player_position_x", player_position_x.ToString());
+        form.AddField("player_position_y", player_position_y.ToString());
+        form.AddField("paper_collected", paperCollected);
+        form.AddField("key_collected", keyCollected);
+        form.AddField("remaining_health", remainingHealth);
 
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
         yield return uwr.SendWebRequest();
@@ -138,26 +159,6 @@ public class Movement : MonoBehaviour
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
-            text1.text=uwr.downloadHandler.text;
         }
     }
-
-
-    IEnumerator retrieveCollectedItems(string url)
-    {
-        WWWForm form = new WWWForm();
-        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
-        yield return uwr.SendWebRequest();
-
-        if (uwr.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.Log("Error While Sending: " + uwr.error);
-        }
-        else
-        {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
-            text1.text = uwr.downloadHandler.text;
-        }
-    }
-    */
 }
