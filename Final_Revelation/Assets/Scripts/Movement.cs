@@ -96,6 +96,8 @@ public class Movement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         go = GameObject.FindWithTag("Player");
         rb = go.GetComponent<Rigidbody2D>();
+
+        StartCoroutine(playerPosition("http://localhost/unity/playerFetch.php", playerId));
     }
 
     void Run()
@@ -170,5 +172,33 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
         }
+    }
+    IEnumerator playerPosition(string url, int playerId)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_id", playerId);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+        }
+
+        //change the current player position
+        float x, y;
+        string[] coordinates = (uwr.downloadHandler.text).Split('/');
+        x = float.Parse(coordinates[0]);
+        y = float.Parse(coordinates[1]);
+
+        Debug.Log("Received: " + coordinates[0]);
+        Debug.Log("Received: " + coordinates[1]);
+
+        go.transform.position = new Vector3(x,y,10);
     }
 }

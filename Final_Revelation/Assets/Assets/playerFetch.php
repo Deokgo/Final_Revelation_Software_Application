@@ -17,7 +17,9 @@
 	{
 		while($row=mysqli_fetch_array($check))
 		{
-			$data[] = $row;			
+			$data[] = $row;	
+			// x and y coordinates		
+			echo $data[0][1]. '/' .$data[0][2];		
 		}
 	}
 	else 

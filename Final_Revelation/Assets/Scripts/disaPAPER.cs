@@ -39,6 +39,8 @@ public class disaPAPER : MonoBehaviour
         {
             Debug.LogError("No GameObject with tag 'KeyText' found.");
         }
+
+        //StartCoroutine(resumeProgress("http://localhost/unity/playerSaveUpdate.php", playerId));
     }
 
     void Update()
@@ -120,5 +122,24 @@ public class disaPAPER : MonoBehaviour
             Debug.Log("Received: " + uwr.downloadHandler.text);
             onCompleted?.Invoke(); //para mawait before magdisappear yung papel
         }
+    }
+    IEnumerator resumeProgress(string url, int playerId)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_id", playerId);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+        }
+
+
     }
 }
