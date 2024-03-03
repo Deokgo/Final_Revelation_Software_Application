@@ -26,6 +26,9 @@ public class Movement : MonoBehaviour
     public int keyCollected = 0;      // Number of keys collected
     public int remainingHealth = 3; // The player's remaining health
 
+    // Audio (SFX when collided with the ghost)
+    public AudioSource audioPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -144,6 +147,7 @@ public class Movement : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ghost"))
         {
+            audioPlayer.Play();
             paperCollected = int.Parse(paperText.text.Split('/')[0]);
             keyCollected = int.Parse(keyText.text.Split('/')[0]);
             remainingHealth -= 1;
