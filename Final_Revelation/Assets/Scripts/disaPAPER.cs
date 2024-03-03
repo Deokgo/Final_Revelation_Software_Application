@@ -60,7 +60,7 @@ public class disaPAPER : MonoBehaviour
 
     public void Disappear()
     {
-        SetBoolValue();
+        //SetBoolValue();
         string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
         if (gameElementTag == "Key")
         {

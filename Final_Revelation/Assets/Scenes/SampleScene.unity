@@ -609,8 +609,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
   paperText: {fileID: 0}
   keyText: {fileID: 0}
+  animator: {fileID: 0}
+  go: {fileID: 0}
 --- !u!4 &63069565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
@@ -1370,8 +1375,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
   paperText: {fileID: 0}
   keyText: {fileID: 0}
+  animator: {fileID: 0}
+  go: {fileID: 0}
 --- !u!1 &461272972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1736,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be92bc620f1a9e4db6b35f5489e0f6f, type: 3}
   m_Name: 
@@ -12475,8 +12485,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
   paperText: {fileID: 0}
   keyText: {fileID: 0}
+  animator: {fileID: 0}
+  go: {fileID: 0}
 --- !u!1 &1278317261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12605,6 +12620,8 @@ MonoBehaviour:
   speedLimiter: 0.7
   rb: {fileID: 0}
   go: {fileID: 0}
+  paperText: {fileID: 0}
+  keyText: {fileID: 0}
   input: 
   playerId: 1
   paperCollected: 0
@@ -12883,8 +12900,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
   paperText: {fileID: 0}
   keyText: {fileID: 0}
+  animator: {fileID: 0}
+  go: {fileID: 0}
 --- !u!1 &1333085726
 GameObject:
   m_ObjectHideFlags: 0
@@ -14049,8 +14071,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
   paperText: {fileID: 0}
   keyText: {fileID: 0}
+  animator: {fileID: 0}
+  go: {fileID: 0}
 --- !u!1 &1725892517
 GameObject:
   m_ObjectHideFlags: 0
@@ -31044,8 +31071,13 @@ MonoBehaviour:
   interactionRange: 1
   interactKey: 101
   playerId: 1
+  paperCollected: 0
+  keyCollected: 0
+  remainingHealth: 3
   paperText: {fileID: 0}
   keyText: {fileID: 0}
+  animator: {fileID: 0}
+  go: {fileID: 0}
 --- !u!1 &2102968323
 GameObject:
   m_ObjectHideFlags: 0

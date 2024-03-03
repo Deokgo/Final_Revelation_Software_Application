@@ -63,6 +63,16 @@ public class Movement : MonoBehaviour
             }
         }
 
+        else if (Input.GetKey(KeyCode.E))
+        {
+            idle = false;
+            run = false;
+            grab_item = true;
+            dead = false;
+
+            SetBoolValue();
+        }
+
         else
         {
             idle = true;
