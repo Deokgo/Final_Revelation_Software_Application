@@ -15,11 +15,12 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 2.0f;
     public float speedLimiter = 0.7f;
     public Rigidbody2D rb;
-    public GameObject go;
+    public GameObject go, lifeObject;
     public TextMeshProUGUI paperText;
     public TextMeshProUGUI keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
+    public string[] life = {"Life3", "Life2", "Life1"};
 
     public int playerId = 1;
     public int paperCollected = 0;    // Number of papers collected
@@ -45,45 +46,54 @@ public class Movement : MonoBehaviour
         Grab_Item();
         Dead();
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if(remainingHealth == 0)
         {
-            idle = false;
-            run = true;
-            grab_item = false;
-            dead = false;
-
-            SetBoolValue();
-
-            var input = Input.inputString;
-
-            if (input.Equals("a"))
-            {
-                sprite.flipX = true;
-            }
-            else if (input.Equals("d"))
-            {
-                sprite.flipX = false;
-            }
+            // reset life (spawn character)
+            remainingHealth = 3;
+            SceneManager.LoadScene("SampleScene");
         }
-
-        else if (Input.GetKey(KeyCode.E))
-        {
-            idle = false;
-            run = false;
-            grab_item = true;
-            dead = false;
-
-            SetBoolValue();
-        }
-
         else
         {
-            idle = true;
-            run = false;
-            grab_item = false;
-            dead = false;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                idle = false;
+                run = true;
+                grab_item = false;
+                dead = false;
 
-            SetBoolValue();
+                SetBoolValue();
+
+                var input = Input.inputString;
+
+                if (input.Equals("a"))
+                {
+                    sprite.flipX = true;
+                }
+                else if (input.Equals("d"))
+                {
+                    sprite.flipX = false;
+                }
+            }
+
+            else if (Input.GetKey(KeyCode.E))
+            {
+                idle = false;
+                run = false;
+                grab_item = true;
+                dead = false;
+
+                SetBoolValue();
+            }
+
+            else
+            {
+                idle = true;
+                run = false;
+                grab_item = false;
+                dead = false;
+
+                SetBoolValue();
+            }
         }
     }
     void SetBoolValue()
@@ -146,11 +156,18 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ghost"))
-        {
+        {  
+            // SFX
             audioPlayer.Play();
+
             paperCollected = int.Parse(paperText.text.Split('/')[0]);
             keyCollected = int.Parse(keyText.text.Split('/')[0]);
             remainingHealth -= 1;
+
+            // UI update
+            lifeObject = GameObject.FindWithTag(life[remainingHealth]);
+            lifeObject.SetActive(false);
+
             StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
         }
     }

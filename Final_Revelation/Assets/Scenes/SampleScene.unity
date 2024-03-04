@@ -662,7 +662,6 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
-  disapaper: {fileID: 31329402}
 --- !u!4 &63069565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
@@ -1475,7 +1474,6 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
-  disapaper: {fileID: 460782942}
 --- !u!1 &461272972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1570,7 @@ GameObject:
   - component: {fileID: 478126498}
   m_Layer: 0
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Life3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4712,7 +4710,7 @@ GameObject:
   - component: {fileID: 926974332}
   m_Layer: 0
   m_Name: 1 (2)
-  m_TagString: Untagged
+  m_TagString: Life1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4796,7 +4794,7 @@ GameObject:
   - component: {fileID: 933806174}
   m_Layer: 0
   m_Name: 1 (1)
-  m_TagString: Untagged
+  m_TagString: Life2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12632,7 +12630,6 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
-  disapaper: {fileID: 1254811798}
 --- !u!1 &1278317261
 GameObject:
   m_ObjectHideFlags: 0
@@ -12761,9 +12758,14 @@ MonoBehaviour:
   speedLimiter: 0.7
   rb: {fileID: 0}
   go: {fileID: 0}
+  lifeObject: {fileID: 0}
   paperText: {fileID: 0}
   keyText: {fileID: 0}
   input: 
+  life:
+  - Life3
+  - Life2
+  - Life1
   playerId: 1
   paperCollected: 0
   keyCollected: 0
@@ -13049,7 +13051,6 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
-  disapaper: {fileID: 1307808733}
 --- !u!1 &1333085726
 GameObject:
   m_ObjectHideFlags: 0
@@ -14221,7 +14222,6 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
-  disapaper: {fileID: 1674202330}
 --- !u!1 &1725892517
 GameObject:
   m_ObjectHideFlags: 0
@@ -31350,7 +31350,6 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
-  disapaper: {fileID: 0}
 --- !u!1 &2102968323
 GameObject:
   m_ObjectHideFlags: 0

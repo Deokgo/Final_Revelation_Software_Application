@@ -15,6 +15,9 @@ TagManager:
   - KeyText
   - Key
   - Exit
+  - Life1
+  - Life2
+  - Life3
   layers:
   - Default
   - TransparentFX
