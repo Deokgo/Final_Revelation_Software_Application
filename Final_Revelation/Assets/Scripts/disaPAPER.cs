@@ -150,6 +150,10 @@ public class disaPAPER : MonoBehaviour
                 objectToDisappear.GetComponent<Renderer>().enabled = false;
             }
         }
+        catch (NullReferenceException)
+        {
+            ;
+        }
         catch (UnassignedReferenceException)
         {
             ;

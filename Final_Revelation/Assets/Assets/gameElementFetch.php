@@ -14,6 +14,7 @@
     }
 
     $rownum = 0;
+    $getElements = array();
     while($row=mysqli_fetch_array($check))
     {
         $data[] = $row;
@@ -21,7 +22,7 @@
 	++$rownum;
     }
 
-$gameElements = implode("/", $getElements);
-echo $gameElements;
+    $gameElements = implode("/", $getElements);
+    echo $gameElements;
 
 ?>
