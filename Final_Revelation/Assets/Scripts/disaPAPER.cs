@@ -150,7 +150,7 @@ public class disaPAPER : MonoBehaviour
             foreach (string element in gameElements)
             {
                 GameObject objectToDisappear = GameObject.Find(element);
-                objectToDisappear.GetComponent<Renderer>().enabled = false;
+                objectToDisappear.SetActive(false);
             }
         }
         catch (NullReferenceException)
