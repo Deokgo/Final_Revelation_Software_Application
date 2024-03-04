@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Data;
 using TMPro;
+using System;
 
 public class Movement : MonoBehaviour
 {
@@ -106,6 +107,16 @@ public class Movement : MonoBehaviour
         // reset life (spawn charter)
         remainingHealth = 3;
         go.transform.position = new Vector3(-22.06852f, 30.67065f, 10f);
+
+        /////////////////////////
+        //Update UI lives here...
+        ////////////////////////
+
+        StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
+    }
+    void SetLives()
+    {
+        
     }
     void SetBoolValue()
     {
@@ -162,10 +173,6 @@ public class Movement : MonoBehaviour
             }
         }
     }
-    ////////////////////
-    //DATABASE CODES...
-    ////////////////////
-
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -177,10 +184,16 @@ public class Movement : MonoBehaviour
             paperCollected = int.Parse(paperText.text.Split('/')[0]);
             keyCollected = int.Parse(keyText.text.Split('/')[0]);
             remainingHealth -= 1;
-
-            // UI update
-            lifeObject = GameObject.FindWithTag(life[remainingHealth]);
-            lifeObject.SetActive(false);
+            try
+            {
+                // UI update
+                lifeObject = GameObject.FindGameObjectWithTag(life[remainingHealth]);
+                lifeObject.SetActive(false);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                RespawnPlayer();
+            }
 
             StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
         }
@@ -233,8 +246,15 @@ public class Movement : MonoBehaviour
         y = float.Parse(player[1]);
         paperText.text = player[2] + "/5";
         keyText.text = player[3] + "/1";
-        //Not yet reflected...
-        remainingHealth = int.Parse(player[4]); 
+
+        paperCollected = int.Parse(player[2]);
+        keyCollected = int.Parse(player[3]);
+        remainingHealth = int.Parse(player[4]);
+
+        if (remainingHealth == 0)
+        {
+            RespawnPlayer();
+        }
 
         go.transform.position = new Vector3(x, y, 10);
 
