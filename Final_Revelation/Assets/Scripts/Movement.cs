@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
 
         if(remainingHealth == 0)
         {
-            // reset life (spawn character)
+            // reset life (spawn charter)
             remainingHealth = 3;
             SceneManager.LoadScene("SampleScene");
         }

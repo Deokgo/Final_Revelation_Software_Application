@@ -24,6 +24,7 @@ public class disaPAPER : MonoBehaviour
     public Animator animator;
     public GameObject go;
     protected bool idle = false, run = false, grab_item = false, dead = false;
+    public AudioSource audioPlayerPaper, audioPlayerKey;
 
     void Start()
     {
@@ -66,10 +67,12 @@ public class disaPAPER : MonoBehaviour
         string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
         if (gameElementTag == "Key")
         {
+            audioPlayerKey.Play();
             keyText.text = "1/1";
         }
         else if (gameElementTag.Substring(0, 5) == "Paper")
         {
+            audioPlayerPaper.Play();
             int currentPapers = int.Parse(paperText.text.Split('/')[0]);
             paperText.text = (currentPapers + 1).ToString() + "/5";
         }
