@@ -30,8 +30,8 @@ public class OpenDoor : MonoBehaviour
         keyCollected = int.Parse(keyText.text.Split('/')[0]);
         if (paperCollected == 5 && keyCollected == 1)
         {
-            Image imageComponent = MyImage.GetComponent<Image>(); // Make sure this is the Image component of the UI
-            MyImage.SetActive(true); // Ensure the GameObject is active to display the image
+            Image imageComponent = MyImage.GetComponent<Image>();
+            MyImage.SetActive(true);
             Debug.Log("BOOM CLUE! SHEESH~");
         }
         else
