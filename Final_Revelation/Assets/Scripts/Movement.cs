@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
     public string[] life = {"Life3", "Life2", "Life1"};
+    public float delay = 3;
+    float timer;
 
     public int playerId = 1;
     public int paperCollected = 0;    // Number of papers collected
@@ -48,9 +50,12 @@ public class Movement : MonoBehaviour
 
         if(remainingHealth == 0)
         {
-            // reset life (spawn charter)
-            remainingHealth = 3;
-            SceneManager.LoadScene("SampleScene");
+            idle = false;
+            run = false;
+            grab_item = false;
+            dead = true;
+
+            SetBoolValue();
         }
         else
         {
@@ -95,6 +100,12 @@ public class Movement : MonoBehaviour
                 SetBoolValue();
             }
         }
+    }
+    void RespawnPlayer()
+    {
+        // reset life (spawn charter)
+        remainingHealth = 3;
+        go.transform.position = new Vector3(-22.06852f, 30.67065f, 10f);
     }
     void SetBoolValue()
     {
@@ -144,9 +155,12 @@ public class Movement : MonoBehaviour
     {
         if (dead)
         {
-
+            timer += Time.deltaTime;
+            if (timer > delay)
+            {
+                RespawnPlayer();
+            }
         }
-
     }
     ////////////////////
     //DATABASE CODES...
