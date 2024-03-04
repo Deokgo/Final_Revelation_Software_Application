@@ -15,12 +15,19 @@
 
 	if($row > 0)
 	{
+		$rownum = 0;
 		while($row=mysqli_fetch_array($check))
 		{
 			$data[] = $row;	
-			// x and y coordinates		
-			echo $data[0][1]. '/' .$data[0][2];		
+			$getElements[] = $data[$rownum][1];
+			$getElements[] = $data[$rownum][2];
+			$getElements[] = $data[$rownum][3];
+			$getElements[] = $data[$rownum][4];
+			$getElements[] = $data[$rownum][5];
+			++$rownum;
 		}
+		$playerdeets = implode("/", $getElements);
+		echo $playerdeets;
 	}
 	else 
 	{

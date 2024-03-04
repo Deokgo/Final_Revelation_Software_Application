@@ -40,7 +40,7 @@ public class disaPAPER : MonoBehaviour
             Debug.LogError("No GameObject with tag 'KeyText' found.");
         }
 
-        //StartCoroutine(resumeProgress("http://localhost/unity/playerSaveUpdate.php", playerId));
+        StartCoroutine(resumeProgress("http://localhost/unity/gameElementFetch.php", playerId));
     }
 
     void Update()
@@ -140,6 +140,19 @@ public class disaPAPER : MonoBehaviour
             Debug.Log("Received: " + uwr.downloadHandler.text);
         }
 
+        string[] gameElements = (uwr.downloadHandler.text).Split('/');
 
+        try
+        {
+            foreach (string element in gameElements)
+            {
+                GameObject objectToDisappear = GameObject.Find(element);
+                objectToDisappear.GetComponent<Renderer>().enabled = false;
+            }
+        }
+        catch (UnassignedReferenceException)
+        {
+            ;
+        }
     }
 }

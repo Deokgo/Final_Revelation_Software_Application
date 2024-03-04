@@ -662,6 +662,7 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
+  disapaper: {fileID: 31329402}
 --- !u!4 &63069565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
@@ -1474,6 +1475,7 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
+  disapaper: {fileID: 460782942}
 --- !u!1 &461272972
 GameObject:
   m_ObjectHideFlags: 0
@@ -12630,6 +12632,7 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
+  disapaper: {fileID: 1254811798}
 --- !u!1 &1278317261
 GameObject:
   m_ObjectHideFlags: 0
@@ -13046,6 +13049,7 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
+  disapaper: {fileID: 1307808733}
 --- !u!1 &1333085726
 GameObject:
   m_ObjectHideFlags: 0
@@ -14217,6 +14221,7 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
+  disapaper: {fileID: 1674202330}
 --- !u!1 &1725892517
 GameObject:
   m_ObjectHideFlags: 0
@@ -31345,6 +31350,7 @@ MonoBehaviour:
   keyText: {fileID: 0}
   animator: {fileID: 0}
   go: {fileID: 0}
+  disapaper: {fileID: 0}
 --- !u!1 &2102968323
 GameObject:
   m_ObjectHideFlags: 0

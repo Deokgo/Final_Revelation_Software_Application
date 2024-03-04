@@ -13,9 +13,15 @@
         echo ".".$row."."; // TODO: better error handling
     }
 
+    $rownum = 0;
     while($row=mysqli_fetch_array($check))
     {
         $data[] = $row;
+	$getElements[] = $data[$rownum][1];
+	++$rownum;
     }
+
+$gameElements = implode("/", $getElements);
+echo $gameElements;
 
 ?>

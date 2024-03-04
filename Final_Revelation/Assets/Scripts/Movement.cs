@@ -194,15 +194,18 @@ public class Movement : MonoBehaviour
             Debug.Log("Received: " + uwr.downloadHandler.text);
         }
 
-        //change the current player position
+        //Set player's progress
+
         float x, y;
-        string[] coordinates = (uwr.downloadHandler.text).Split('/');
-        x = float.Parse(coordinates[0]);
-        y = float.Parse(coordinates[1]);
+        string[] player = (uwr.downloadHandler.text).Split('/');
+        x = float.Parse(player[0]);
+        y = float.Parse(player[1]);
+        paperText.text = player[2] + "/5";
+        keyText.text = player[3] + "/1";
+        //Not yet reflected...
+        remainingHealth = int.Parse(player[4]); 
 
-        Debug.Log("Received: " + coordinates[0]);
-        Debug.Log("Received: " + coordinates[1]);
+        go.transform.position = new Vector3(x, y, 10);
 
-        go.transform.position = new Vector3(x,y,10);
     }
 }
