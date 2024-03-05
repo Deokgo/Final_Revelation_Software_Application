@@ -117,18 +117,11 @@ public class Movement : MonoBehaviour
             Debug.Log("Checking tag: " + buhay);
             lifeObject = GameObject.FindGameObjectWithTag(buhay);
 
-            if (lifeObject != null)
-            {
-                lifeObject.SetActive(true);
-            }
-            else
-            {
-                Debug.LogError("GameObject with tag '" + buhay + "' not found.");
-            }
+            lifeObject.GetComponent<SpriteRenderer>().enabled = true;
         }
         StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
     }
-    
+
     void SetLives()
     {
         
@@ -203,7 +196,7 @@ public class Movement : MonoBehaviour
             {
                 // UI update
                 lifeObject = GameObject.FindGameObjectWithTag(life[remainingHealth]);
-                lifeObject.SetActive(false);
+                lifeObject.GetComponent<SpriteRenderer>().enabled = false;
             }
             catch (IndexOutOfRangeException)
             {
