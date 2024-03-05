@@ -111,9 +111,24 @@ public class Movement : MonoBehaviour
         /////////////////////////
         //Update UI lives here...
         ////////////////////////
+        
+        foreach (string buhay in life)
+        {
+            Debug.Log("Checking tag: " + buhay);
+            lifeObject = GameObject.FindGameObjectWithTag(buhay);
 
+            if (lifeObject != null)
+            {
+                lifeObject.SetActive(true);
+            }
+            else
+            {
+                Debug.LogError("GameObject with tag '" + buhay + "' not found.");
+            }
+        }
         StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
     }
+    
     void SetLives()
     {
         

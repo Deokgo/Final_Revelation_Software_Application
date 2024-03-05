@@ -13259,6 +13259,7 @@ MonoBehaviour:
   - Life3
   - Life2
   - Life1
+  delay: 3
   playerId: 1
   paperCollected: 0
   keyCollected: 0
@@ -32322,7 +32323,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.005, y: -4.5885}
-  m_SizeDelta: {x: 6.01, y: 9.1769}
+  m_SizeDelta: {x: 15, y: 9.1769}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110862587
 MonoBehaviour:
@@ -32344,7 +32345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f80e6c1ed460b0247a4b154ef32a8e1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b40d6087210ed340805b4c3d4376b23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
