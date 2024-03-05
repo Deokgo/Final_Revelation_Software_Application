@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     public int playerId = 1;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;      // Number of keys collected
-    public int remainingHealth = 3; // The player's remaining health
+    public int remainingHealth; // The player's remaining health
 
     // Audio (SFX when collided with the ghost)
     public AudioSource audioPlayer;
@@ -116,7 +116,6 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("Checking tag: " + buhay);
             lifeObject = GameObject.FindGameObjectWithTag(buhay);
-
             lifeObject.GetComponent<SpriteRenderer>().enabled = true;
         }
         StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
@@ -124,7 +123,11 @@ public class Movement : MonoBehaviour
 
     void SetLives()
     {
-        
+        for (int i = 1; i < remainingHealth; i++)
+        {
+            lifeObject = GameObject.FindGameObjectWithTag(life[i]);
+            lifeObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
     void SetBoolValue()
     {
@@ -139,6 +142,12 @@ public class Movement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         go = GameObject.FindWithTag("Player");
         rb = go.GetComponent<Rigidbody2D>();
+
+        for (int i = 1; i < 3; i++)
+        {
+            lifeObject = GameObject.FindGameObjectWithTag(life[i]);
+            lifeObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
 
         StartCoroutine(playerPosition("http://localhost/unity/playerFetch.php", playerId));
     }
@@ -258,6 +267,7 @@ public class Movement : MonoBehaviour
         paperCollected = int.Parse(player[2]);
         keyCollected = int.Parse(player[3]);
         remainingHealth = int.Parse(player[4]);
+        SetLives();
 
         if (remainingHealth == 0)
         {
