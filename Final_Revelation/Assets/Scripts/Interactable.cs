@@ -8,10 +8,10 @@ public class Interactable : MonoBehaviour
     public bool isInRange = false;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public GameObject exclamationPoint;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -30,6 +30,7 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
+            exclamationPoint.SetActive(true); // Show the exclamation point
             Debug.Log("Player is now in range");
         }
     }
@@ -38,6 +39,7 @@ public class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
+            exclamationPoint.SetActive(false); // Hide the exclamation point
             //Debug.Log("Player is not in range");
         }
     }
