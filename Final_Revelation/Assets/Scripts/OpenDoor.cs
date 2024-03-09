@@ -31,6 +31,8 @@ public class OpenDoor : MonoBehaviour
         if (paperCollected == 5 && keyCollected == 1)
         {
             Image imageComponent = MyImage.GetComponent<Image>();
+            img1 = Resources.Load<Sprite>("Clues/Clue_1"); // Replace with the actual path and sprite name without the extension
+            imageComponent.sprite = img1; // Assign the loaded sprite to the image component
             MyImage.SetActive(true);
             Debug.Log("BOOM CLUE! SHEESH~");
         }
