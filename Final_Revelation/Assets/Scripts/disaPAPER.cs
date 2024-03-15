@@ -15,7 +15,8 @@ public class disaPAPER : MonoBehaviour
     public Interactable interactable;
     public float interactionRange = 1.0f; // Set the range as needed
     public KeyCode interactKey = KeyCode.E;
-    public int playerId = 1;
+    public string playerUsername = "deokgoo";
+    public int currentlvl;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;      // Number of keys collected
     public int remainingHealth = 3; // The player's remaining health
@@ -41,7 +42,7 @@ public class disaPAPER : MonoBehaviour
             Debug.LogError("No GameObject with tag 'KeyText' found.");
         }
 
-        StartCoroutine(resumeProgress("http://localhost/unity/gameElementFetch.php", playerId));
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
 
     void Update()
@@ -78,15 +79,36 @@ public class disaPAPER : MonoBehaviour
         }
         paperCollected = int.Parse(paperText.text.Split('/')[0]);
         keyCollected = int.Parse(keyText.text.Split('/')[0]);
-        StartCoroutine(storeCollectedItem("http://localhost/unity/gameElementAdd.php", playerId, gameElementTag));
-        StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
+        StartCoroutine(storeCollectedItem("http://localhost/unity2/gameElementAdd.php", playerUsername, currentlvl, gameElementTag));
+        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
         //gameObject.SetActive(false);
     }
-
-    IEnumerator storeCollectedItem(string url, int player_id, string gameElementTag)
+    IEnumerator getPlayerLevel(string url, string username)
     {
         WWWForm form = new WWWForm();
-        form.AddField("player_id", player_id);
+        form.AddField("player_username", username);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+        }
+
+        currentlvl = int.Parse(uwr.downloadHandler.text);
+
+        StartCoroutine(resumeProgress("http://localhost/unity2/gameElementFetch.php", playerUsername, currentlvl));
+    }
+    IEnumerator storeCollectedItem(string url, string username, int lvl, string gameElementTag)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
         form.AddField("game_element_collected", gameElementTag);
         Debug.Log(gameElementTag);
         using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
@@ -103,10 +125,11 @@ public class disaPAPER : MonoBehaviour
             }
         }
     }
-    IEnumerator updatePlayer(string url, int playerId, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth, Action onCompleted)
+    IEnumerator updatePlayer(string url, string username, int lvl, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth, Action onCompleted)
     {
         WWWForm form = new WWWForm();
-        form.AddField("player_id", playerId);
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
         form.AddField("player_position_x", player_position_x.ToString());
         form.AddField("player_position_y", player_position_y.ToString());
         form.AddField("paper_collected", paperCollected);
@@ -126,10 +149,11 @@ public class disaPAPER : MonoBehaviour
             onCompleted?.Invoke(); //para mawait before magdisappear yung papel
         }
     }
-    IEnumerator resumeProgress(string url, int playerId)
+    IEnumerator resumeProgress(string url, string username, int lvl)
     {
         WWWForm form = new WWWForm();
-        form.AddField("player_id", playerId);
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
 
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
         yield return uwr.SendWebRequest();

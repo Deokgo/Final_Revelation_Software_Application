@@ -21,11 +21,12 @@ public class Movement : MonoBehaviour
     public TextMeshProUGUI keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
+    public string playerUsername = "deokgoo";
     public string[] life = {"Life3", "Life2", "Life1"};
     public float delay = 3;
     float timer;
 
-    public int playerId = 1;
+    public int currentlvl;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;      // Number of keys collected
     public int remainingHealth; // The player's remaining health
@@ -118,7 +119,7 @@ public class Movement : MonoBehaviour
             lifeObject = GameObject.FindGameObjectWithTag(buhay);
             lifeObject.GetComponent<SpriteRenderer>().enabled = true;
         }
-        StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
+        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
     }
 
     void SetLives()
@@ -149,7 +150,7 @@ public class Movement : MonoBehaviour
             lifeObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        StartCoroutine(playerPosition("http://localhost/unity/playerFetch.php", playerId));
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
 
     void Run()
@@ -212,14 +213,15 @@ public class Movement : MonoBehaviour
                 RespawnPlayer();
             }
 
-            StartCoroutine(updatePlayer("http://localhost/unity/playerSaveUpdate.php", playerId, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
+            StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
         }
     }
 
-    IEnumerator updatePlayer(string url, int playerId, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth)
+    IEnumerator updatePlayer(string url, string username, int lvl, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth)
     {
         WWWForm form = new WWWForm();
-        form.AddField("player_id", playerId);
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
         form.AddField("player_position_x", player_position_x.ToString());
         form.AddField("player_position_y", player_position_y.ToString());
         form.AddField("paper_collected", paperCollected);
@@ -238,10 +240,34 @@ public class Movement : MonoBehaviour
             Debug.Log("Received: " + uwr.downloadHandler.text);
         }
     }
-    IEnumerator playerPosition(string url, int playerId)
+    IEnumerator getPlayerLevel(string url, string username)
     {
         WWWForm form = new WWWForm();
-        form.AddField("player_id", playerId);
+        form.AddField("player_username", username);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+        }
+
+        currentlvl = int.Parse(uwr.downloadHandler.text);
+
+        StartCoroutine(getPlayerProgress("http://localhost/unity2/progressFetch.php", playerUsername, currentlvl));
+    }
+    IEnumerator getPlayerProgress(string url, string username, int lvl)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
+
+        Debug.Log(lvl);
 
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
         yield return uwr.SendWebRequest();
