@@ -18,6 +18,11 @@ public class Menu_Script : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void GotoStart()
+    {
+        SceneManager.LoadScene("StartingMenu");
+    }
     public void QuitGame()
     {
         Application.Quit();
