@@ -31,8 +31,8 @@ public class Interactable : MonoBehaviour
         {
             isInRange = true;
             exclamationPoint.SetActive(true); // Show the exclamation point
-            DialogueTrigger.Instance.TriggerDialogue();
-            Debug.Log("Player is now in range");
+            //DialogueTrigger.Instance.TriggerDialogue();
+            //Debug.Log("Player is now in range");
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -41,7 +41,7 @@ public class Interactable : MonoBehaviour
         {
             isInRange = false;
             exclamationPoint.SetActive(false); // Hide the exclamation point
-            DialogueManager.Instance.EndDialogue();
+            //DialogueManager.Instance.EndDialogue();
             //Debug.Log("Player is not in range");
         }
     }

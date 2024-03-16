@@ -30,17 +30,17 @@ public class disaPAPER : MonoBehaviour
     void Start()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
+        //keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         go = GameObject.FindWithTag("Player");
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
         if (paperText == null)
         {
             Debug.LogError("No GameObject with tag 'PaperText' found.");
         }
-        if (keyText == null)
-        {
-            Debug.LogError("No GameObject with tag 'KeyText' found.");
-        }
+        // if (keyText == null)
+        // {
+        //     Debug.LogError("No GameObject with tag 'KeyText' found.");
+        // }
 
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
@@ -68,17 +68,17 @@ public class disaPAPER : MonoBehaviour
         string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
         if (gameElementTag == "Key")
         {
-            audioPlayerKey.Play();
+            //audioPlayerKey.Play();
             keyText.text = "1/1";
         }
         else if (gameElementTag.Substring(0, 5) == "Paper")
         {
-            audioPlayerPaper.Play();
+            //audioPlayerPaper.Play();
             int currentPapers = int.Parse(paperText.text.Split('/')[0]);
             paperText.text = (currentPapers + 1).ToString() + "/5";
         }
         paperCollected = int.Parse(paperText.text.Split('/')[0]);
-        keyCollected = int.Parse(keyText.text.Split('/')[0]);
+        //keyCollected = int.Parse(keyText.text.Split('/')[0]);
         StartCoroutine(storeCollectedItem("http://localhost/unity2/gameElementAdd.php", playerUsername, currentlvl, gameElementTag));
         StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
         //gameObject.SetActive(false);

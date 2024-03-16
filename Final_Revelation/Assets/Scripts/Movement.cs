@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
     public string playerUsername = "deokgoo";
-    public string[] life = {"Life3", "Life2", "Life1"};
+    public string[] life = { "Life3", "Life2", "Life1" };
     public float delay = 3;
     float timer;
 
@@ -37,9 +37,17 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         Init();
+        paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
+        try
+        {
+            keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
+        }
+        catch (Exception ex)
+        {
+            //
+        }
+
     }
 
     // Update is called once per frame
@@ -50,7 +58,7 @@ public class Movement : MonoBehaviour
         Grab_Item();
         Dead();
 
-        if(remainingHealth == 0)
+        if (remainingHealth == 0)
         {
             idle = false;
             run = false;
@@ -112,7 +120,7 @@ public class Movement : MonoBehaviour
         /////////////////////////
         //Update UI lives here...
         ////////////////////////
-        
+
         foreach (string buhay in life)
         {
             Debug.Log("Checking tag: " + buhay);
@@ -195,7 +203,7 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ghost"))
-        {  
+        {
             // SFX
             audioPlayer.Play();
 
@@ -285,11 +293,12 @@ public class Movement : MonoBehaviour
         string[] player = (uwr.downloadHandler.text).Split('/');
         x = float.Parse(player[0]);
         y = float.Parse(player[1]);
+        Debug.Log("Paper mo ay:" + player[2]);
         paperText.text = player[2] + "/5";
-        keyText.text = player[3] + "/1";
+        //keyText.text = player[3] + "/1";
 
         paperCollected = int.Parse(player[2]);
-        keyCollected = int.Parse(player[3]);
+        // keyCollected = int.Parse(player[3]);
         remainingHealth = int.Parse(player[4]);
         SetLives();
 
