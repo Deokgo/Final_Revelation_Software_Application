@@ -43,9 +43,9 @@ public class Movement : MonoBehaviour
         {
             keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            //
+            ;
         }
 
     }
@@ -157,6 +157,8 @@ public class Movement : MonoBehaviour
             lifeObject = GameObject.FindGameObjectWithTag(life[i]);
             lifeObject.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        DialogueTrigger.Instance.TriggerDialogue();
 
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
