@@ -267,8 +267,6 @@ public class Movement : MonoBehaviour
         form.AddField("player_username", username);
         form.AddField("player_level", lvl);
 
-        Debug.Log(lvl);
-
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
         yield return uwr.SendWebRequest();
 
