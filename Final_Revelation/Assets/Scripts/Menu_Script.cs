@@ -7,16 +7,17 @@ using UnityEngine.SceneManagement;
 public class Menu_Script : MonoBehaviour
 {
     public static string userInput;
+    public string playerUsername = "deokgoo";
     public static int currentlvl = 0;
 
     public void ResumeGame()
     {
         userInput = "deokgoo";
-        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", userInput));
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
     public void PlayGame()
     {
-        StartCoroutine(storePlayer("http://localhost/unity2/playerInsert.php", userInput));
+        StartCoroutine(truncatePlayerProgress("http://localhost/unity2/truncateProgress.php", playerUsername));
     }
 
     public void GotoPlayMenu()
@@ -69,7 +70,7 @@ public class Menu_Script : MonoBehaviour
             Debug.Log("No Player Information Found!");
         }
     }
-    IEnumerator storePlayer(string url, string username)
+    IEnumerator truncatePlayerProgress(string url, string username)
     {
         WWWForm form = new WWWForm();
         form.AddField("player_username", username);
@@ -87,8 +88,8 @@ public class Menu_Script : MonoBehaviour
                 Debug.Log("Received: " + uwr.downloadHandler.text);
             }
 
-            if (uwr.downloadHandler.text == "Player Saved!")
-                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", userInput));
+            if (uwr.downloadHandler.text == "Player Progress Deleted!")
+                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", playerUsername));
         }
     }
     IEnumerator storePlayerProgress(string url, string username)

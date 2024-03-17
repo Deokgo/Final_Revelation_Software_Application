@@ -2256,9 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce5c38a72ee3f748b5a98527610dd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userInput: 
-  player: deokgoo
-  currentlvl: 0
+  playerUsername: deokgoo
 --- !u!4 &1695659452
 Transform:
   m_ObjectHideFlags: 0
@@ -2465,9 +2463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce5c38a72ee3f748b5a98527610dd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userInput: 
-  player: deokgoo
-  currentlvl: 0
+  playerUsername: deokgoo
 --- !u!1 &1993773527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,9 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce5c38a72ee3f748b5a98527610dd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userInput: 
-  player: deokgoo
-  currentlvl: 0
+  playerUsername: deokgoo
 --- !u!1 &2015998063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,7 +2653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2027306282}
+      - m_Target: {fileID: 1993773532}
         m_TargetAssemblyTypeName: Menu_Script, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
@@ -2756,9 +2750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce5c38a72ee3f748b5a98527610dd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userInput: 
-  player: deokgoo
-  currentlvl: 0
+  playerUsername: deokgoo
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
