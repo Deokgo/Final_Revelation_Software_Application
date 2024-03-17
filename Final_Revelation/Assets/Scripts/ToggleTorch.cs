@@ -5,7 +5,7 @@ using UnityEngine;
 public class ToggleTorch : MonoBehaviour
 {
     public Animator animator;
-    private bool isTorchOn = false;
+    public bool isTorchOn = false;
     // Start is called before the first frame update
     void Start()
     {

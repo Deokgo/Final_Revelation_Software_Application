@@ -22,6 +22,10 @@ TagManager:
   - Reset
   - ExclamationMark
   - ImageFrame
+  - Torch1
+  - Torch2
+  - Torch3
+  - Torch4
   layers:
   - Default
   - TransparentFX
