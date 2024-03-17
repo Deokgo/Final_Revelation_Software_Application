@@ -15,7 +15,7 @@ public class disaPAPER : MonoBehaviour
     public Interactable interactable;
     public float interactionRange = 1.0f; // Set the range as needed
     public KeyCode interactKey = KeyCode.E;
-    //public string playerUsername = "deokgoo";
+    public string playerUsername = "deokgoo";
     public int currentlvl;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;      // Number of keys collected
@@ -26,6 +26,9 @@ public class disaPAPER : MonoBehaviour
     public GameObject go;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public AudioSource audioPlayerPaper, audioPlayerKey;
+    private Sprite img1;
+    public GameObject MyImage;
+    public GameObject ImageHolder;
 
     void Start()
     {
@@ -33,6 +36,8 @@ public class disaPAPER : MonoBehaviour
         //keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         go = GameObject.FindWithTag("Player");
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        MyImage = GameObject.FindWithTag("ImageFrame");
+        ImageHolder = MyImage.transform.Find("ImageHolder").gameObject;
         if (paperText == null)
         {
             Debug.LogError("No GameObject with tag 'PaperText' found.");
@@ -42,7 +47,7 @@ public class disaPAPER : MonoBehaviour
         //     Debug.LogError("No GameObject with tag 'KeyText' found.");
         // }
 
-        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", Menu_Script.userInput));
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
 
     void Update()
@@ -76,11 +81,18 @@ public class disaPAPER : MonoBehaviour
             //audioPlayerPaper.Play();
             int currentPapers = int.Parse(paperText.text.Split('/')[0]);
             paperText.text = (currentPapers + 1).ToString() + "/5";
+            if (paperText.text == "5/5")
+            {
+                Image imageComponent = ImageHolder.GetComponent<Image>();
+                img1 = Resources.Load<Sprite>("Clues/Clue_1");
+                imageComponent.sprite = img1;
+                ImageHolder.SetActive(true);
+            }
         }
         paperCollected = int.Parse(paperText.text.Split('/')[0]);
-        //keyCollected = int.Parse(keyText.text.Split('/')[0]);
-        StartCoroutine(storeCollectedItem("http://localhost/unity2/gameElementAdd.php", Menu_Script.userInput, currentlvl, gameElementTag));
-        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", Menu_Script.userInput, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
+        //keyCollected = int.Parse(keyText.text.Split('/')[0]); //Menu_Script.userInput
+        StartCoroutine(storeCollectedItem("http://localhost/unity2/gameElementAdd.php", playerUsername, currentlvl, gameElementTag));
+        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
         //gameObject.SetActive(false);
     }
     IEnumerator getPlayerLevel(string url, string username)
@@ -102,7 +114,7 @@ public class disaPAPER : MonoBehaviour
 
         currentlvl = int.Parse(uwr.downloadHandler.text);
 
-        StartCoroutine(resumeProgress("http://localhost/unity2/gameElementFetch.php", Menu_Script.userInput, currentlvl));
+        StartCoroutine(resumeProgress("http://localhost/unity2/gameElementFetch.php", playerUsername, currentlvl));
     }
     IEnumerator storeCollectedItem(string url, string username, int lvl, string gameElementTag)
     {

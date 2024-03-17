@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public TextMeshProUGUI keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
-    //public string playerUsername = "deokgoo";
+    public string playerUsername = "deokgoo";
     public string[] life = { "Life3", "Life2", "Life1" };
     public float delay = 3;
     float timer;
@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour
             lifeObject = GameObject.FindGameObjectWithTag(buhay);
             lifeObject.GetComponent<SpriteRenderer>().enabled = true;
         }
-        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", Menu_Script.userInput, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
+        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
     }
 
     void SetLives()
@@ -160,7 +160,7 @@ public class Movement : MonoBehaviour
 
         DialogueTrigger.Instance.TriggerDialogue();
 
-        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", Menu_Script.userInput));
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
 
     void Run()
@@ -223,7 +223,7 @@ public class Movement : MonoBehaviour
                 RespawnPlayer();
             }
 
-            StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", Menu_Script.userInput, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
+            StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth));
         }
     }
 
@@ -269,7 +269,7 @@ public class Movement : MonoBehaviour
 
         currentlvl = int.Parse(uwr.downloadHandler.text);
 
-        StartCoroutine(getPlayerProgress("http://localhost/unity2/progressFetch.php", Menu_Script.userInput, currentlvl));
+        StartCoroutine(getPlayerProgress("http://localhost/unity2/progressFetch.php", playerUsername, currentlvl));
     }
     IEnumerator getPlayerProgress(string url, string username, int lvl)
     {

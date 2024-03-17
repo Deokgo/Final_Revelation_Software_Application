@@ -21,6 +21,7 @@ TagManager:
   - Papers
   - Reset
   - ExclamationMark
+  - ImageFrame
   layers:
   - Default
   - TransparentFX
