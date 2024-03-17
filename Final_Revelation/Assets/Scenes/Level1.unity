@@ -768,8 +768,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4089, y: -0.086875916}
-  m_SizeDelta: {x: 806.908, y: 73.0628}
+  m_AnchoredPosition: {x: 0.4089, y: 0.1041}
+  m_SizeDelta: {x: 806.908, y: 90.2505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205198301
 MonoBehaviour:
@@ -19435,7 +19435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4208, y: 1.0596733}
+  m_AnchoredPosition: {x: 0.4208, y: 1.47}
   m_SizeDelta: {x: 805.6889, y: 33.7728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265327356
@@ -19997,7 +19997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.74, y: 0.97}
+  m_AnchoredPosition: {x: -7.74, y: 1.3803279}
   m_SizeDelta: {x: 40.63, y: 27.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &594827284 stripped
@@ -64491,7 +64491,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.44, y: 0.17}
+  m_AnchoredPosition: {x: -7.52, y: 0.6}
   m_SizeDelta: {x: 40.63, y: 27.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &892390021
@@ -65419,6 +65419,7 @@ GameObject:
   - component: {fileID: 1207150575}
   - component: {fileID: 1207150574}
   - component: {fileID: 1207150577}
+  - component: {fileID: 1207150578}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -65515,6 +65516,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1805854699}
   smoothing: 0.1
+--- !u!114 &1207150578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207150573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4fa774758d64c4988c9a03afda55eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: '*'
+      line: A detective woke up from an unknown surrounding, wondering what happened
+        and why he was there.
+    - character:
+        name: '*'
+      line: He looked out the whole area and saw an old building in front of him.
+    - character:
+        name: '*'
+      line: In that old building, he saw some clues hanging around, and he found
+        a key opening the main entrance of the building.
+    - character:
+        name: '*'
+      line: When he opened the door, he saw the lobby (first floor) was filled with
+        dead bodies.
+    - character:
+        name: '*'
+      line: Your goal is to find clues and evidence behind the dead bodies.
+    - character:
+        name: '*'
+      line: You will soon discover the Final Revelation. Goodluck!
 --- !u!1 &1227715623
 GameObject:
   m_ObjectHideFlags: 0
@@ -65852,7 +65888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -108.79, y: -38.42}
+  m_AnchoredPosition: {x: -108.78998, y: -38.419983}
   m_SizeDelta: {x: 42.37, y: 43.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266923993
@@ -66089,7 +66125,7 @@ MonoBehaviour:
   characterName: {fileID: 526181741}
   dialogueArea: {fileID: 870197283}
   isDialogueActive: 0
-  typingSpeed: 0.05
+  typingSpeed: 0.02
   animator: {fileID: 1301095453}
 --- !u!95 &1301095453
 Animator:
@@ -67480,7 +67516,6 @@ GameObject:
   - component: {fileID: 1805854700}
   - component: {fileID: 1805854703}
   - component: {fileID: 1805854701}
-  - component: {fileID: 1805854704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -67682,41 +67717,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4375, y: 1.25}
   m_EdgeRadius: 0
---- !u!114 &1805854704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805854697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4fa774758d64c4988c9a03afda55eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: '*'
-      line: A detective woke up from an unknown surrounding, wondering what happened
-        and why he was there.
-    - character:
-        name: '*'
-      line: He looked out the whole area and saw an old building in front of him.
-    - character:
-        name: '*'
-      line: In the old building, he saw some clues hanging around, and he found a
-        key opening the main entrance of the building.
-    - character:
-        name: '*'
-      line: When he opened the door, he saw the lobby (first floor) was filled with
-        dead bodies.
-    - character:
-        name: '*'
-      line: Your goal is to find clues and evidence behind the dead bodies.
-    - character:
-        name: '*'
-      line: You will soon discover the Final Revelation. Goodluck!
 --- !u!4 &1854960665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
