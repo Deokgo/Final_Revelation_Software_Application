@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Data;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class OpenDoor : MonoBehaviour
@@ -71,6 +72,7 @@ public class OpenDoor : MonoBehaviour
             imageComponent.sprite = img1; // Assign the loaded sprite to the image component
             ImageHolder.SetActive(true);
             Debug.Log("CONGRATULATIONS");
+            SceneManager.LoadScene("Level2");
         }
         else
         {
