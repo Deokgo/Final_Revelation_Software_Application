@@ -207,10 +207,10 @@ public class Movement : MonoBehaviour
         if (col.gameObject.CompareTag("Ghost"))
         {
             // SFX
-            audioPlayer.Play();
+            //audioPlayer.Play();
 
             paperCollected = int.Parse(paperText.text.Split('/')[0]);
-            keyCollected = int.Parse(keyText.text.Split('/')[0]);
+            //keyCollected = int.Parse(keyText.text.Split('/')[0]);
             remainingHealth -= 1;
             try
             {

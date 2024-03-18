@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Data;
 using TMPro;
-using UnityEngine.SceneManagement;
-
 
 public class OpenDoor : MonoBehaviour
 {
