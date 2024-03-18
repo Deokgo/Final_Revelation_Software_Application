@@ -32,6 +32,16 @@ public class OpenDoor : MonoBehaviour
     public ToggleTorch torch2;
     public ToggleTorch torch3;
     public ToggleTorch torch4;
+
+    // 1st progress data for 
+    private string playerUsername = "deokgoo";
+    private int nextLvl = 2;
+    private double player_position_x = -0.08565235;
+    private double player_position_y = 0.01465917;
+    private int remainingHealth = 3;
+
+
+
     void Start()
     {
         //paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
@@ -67,6 +77,8 @@ public class OpenDoor : MonoBehaviour
 
         if (!torch1.isTorchOn && torch2.isTorchOn && !torch3.isTorchOn && torch4.isTorchOn) // if the torches are in the correct order, it should open
         {
+            StartCoroutine(insertProgressPlayer("http://localhost/unity2/progressInsert.php", playerUsername, nextLvl, player_position_x, player_position_y, paperCollected, keyCollected, remainingHealth));
+
             Image imageComponent = ImageHolder.GetComponent<Image>();
             img1 = Resources.Load<Sprite>("Images/success"); // Replace with the actual path and sprite name without the extension
             imageComponent.sprite = img1; // Assign the loaded sprite to the image component
@@ -81,6 +93,30 @@ public class OpenDoor : MonoBehaviour
             imageComponent.sprite = img1; // Assign the loaded sprite to the image component
             ImageHolder.SetActive(true);
             Debug.Log("THE DOOR IS LOCKED");
+        }
+    }
+
+    IEnumerator insertProgressPlayer(string url, string username, int nextLvl, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", nextLvl);
+        form.AddField("player_position_x", player_position_x.ToString());
+        form.AddField("player_position_y", player_position_y.ToString());
+        form.AddField("paper_collected", paperCollected);
+        form.AddField("key_collected", keyCollected);
+        form.AddField("remaining_health", remainingHealth);
+
+        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
         }
     }
 }

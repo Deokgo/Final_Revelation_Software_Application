@@ -26,6 +26,9 @@ TagManager:
   - Torch2
   - Torch3
   - Torch4
+  - MainDoor_R
+  - MainDoor_L
+  - MainChest
   layers:
   - Default
   - TransparentFX
