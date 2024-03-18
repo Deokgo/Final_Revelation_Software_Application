@@ -158,7 +158,7 @@ public class Movement : MonoBehaviour
             lifeObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        DialogueTrigger.Instance.TriggerDialogue();
+        //DialogueTrigger.Instance.TriggerDialogue();
 
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
@@ -268,6 +268,7 @@ public class Movement : MonoBehaviour
         }
 
         currentlvl = int.Parse(uwr.downloadHandler.text);
+        Debug.Log("Current Level: " + currentlvl);
 
         StartCoroutine(getPlayerProgress("http://localhost/unity2/progressFetch.php", playerUsername, currentlvl));
     }
