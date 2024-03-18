@@ -81,7 +81,7 @@ public class disaPAPER : MonoBehaviour
             //audioPlayerPaper.Play();
             int currentPapers = int.Parse(paperText.text.Split('/')[0]);
             paperText.text = (currentPapers + 1).ToString() + "/5";
-            if (paperText.text == "5/5")
+            if ((paperText.text == "5/5") && (currentlvl == 1))
             {
                 Image imageComponent = ImageHolder.GetComponent<Image>();
                 img1 = Resources.Load<Sprite>("Clues/Clue_1");
