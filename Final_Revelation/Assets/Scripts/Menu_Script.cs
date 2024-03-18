@@ -12,7 +12,6 @@ public class Menu_Script : MonoBehaviour
 
     public void ResumeGame()
     {
-        userInput = "deokgoo";
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
     public void PlayGame()

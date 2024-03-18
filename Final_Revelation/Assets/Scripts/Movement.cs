@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
     {
         // reset life (spawn charter)
         remainingHealth = 3;
-        go.transform.position = new Vector3(-22.06852f, 30.67065f, 10f);
+        go.transform.position = new Vector3(-0.08565235f, 0.01465917f, 10f);
 
         /////////////////////////
         //Update UI lives here...
