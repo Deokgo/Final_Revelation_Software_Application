@@ -25,7 +25,8 @@ public class disaPAPER : MonoBehaviour
     public Animator animator;
     public GameObject go;
     protected bool idle = false, run = false, grab_item = false, dead = false;
-    public AudioSource audioPlayerPaper, audioPlayerKey;
+    public AudioSource audioPlayerPaper;
+    //public AudioSource audioPlayerKey;
     private Sprite img1;
     public GameObject MyImage;
     public GameObject ImageHolder;
@@ -78,7 +79,7 @@ public class disaPAPER : MonoBehaviour
         }
         else if (gameElementTag.Substring(0, 5) == "Paper")
         {
-            //audioPlayerPaper.Play();
+            audioPlayerPaper.Play();
             int currentPapers = int.Parse(paperText.text.Split('/')[0]);
             paperText.text = (currentPapers + 1).ToString() + "/5";
             if ((paperText.text == "5/5") && (currentlvl == 1))
