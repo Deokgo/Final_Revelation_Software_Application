@@ -13,12 +13,12 @@ public class OpeningDoors : MonoBehaviour
     public TextMeshProUGUI paperText;
     private Sprite img1;
     public GameObject Jumpscare, ImageJumpscare, UserInput;
-    //public AudioSource audioSource;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
     }
 
     // Update is called once per frame
@@ -43,6 +43,8 @@ public class OpeningDoors : MonoBehaviour
             img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare1");
             imageComponent.sprite = img1;
             ImageJumpscare.SetActive(true);
+            audioSource.Play();
+            StartCoroutine(DisableImg());
         }
         else
         {
@@ -58,7 +60,7 @@ public class OpeningDoors : MonoBehaviour
             img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare2");
             imageComponent.sprite = img1;
             ImageJumpscare.SetActive(true);
-            //audioSource.Play();
+            audioSource.Play();
             StartCoroutine(DisableImg());
         }
         else
