@@ -62,7 +62,12 @@ public class Menu_Script : MonoBehaviour
 
         if (currentlvl != 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            switch (currentlvl)
+            {
+                case 1: SceneManager.LoadScene("Level1"); break;
+                case 2: SceneManager.LoadScene("Level2"); break;
+                case 3: SceneManager.LoadScene("Level3"); break;
+            }
         }
         else
         {
