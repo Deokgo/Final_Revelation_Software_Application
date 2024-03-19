@@ -71,10 +71,14 @@ public class OpeningDoors : MonoBehaviour
 
     public void MainDoor()
     {
-        Debug.Log("Find all the papers first.");
+        
         if (paperText.text == "5/5")
         {
             UserInput.GetComponent<Canvas>().enabled = true;
+        }
+        else
+        {
+            Debug.Log("Find all the papers first.");
         }
     }
 

@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
 
     public Animator animator;
     public SpriteRenderer sprite;
-    public float moveSpeed = 2.0f;
+    public float moveSpeed = 4.0f;
     public float speedLimiter = 0.7f;
     public Rigidbody2D rb;
     public GameObject go, lifeObject;
