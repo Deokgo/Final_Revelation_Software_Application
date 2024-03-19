@@ -33,6 +33,10 @@ TagManager:
   - UserInput
   - Jumpscare
   - GameMusic
+  - Skeleton1
+  - Skeleton2
+  - Skeleton3
+  - Reaper
   layers:
   - Default
   - TransparentFX

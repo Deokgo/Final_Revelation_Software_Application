@@ -69,37 +69,49 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            if (DialogueManager.Instance.isDialogueActive == false)
             {
-                idle = false;
-                run = true;
-                grab_item = false;
-                dead = false;
-
-                SetBoolValue();
-
-                var input = Input.inputString;
-
-                if (input.Equals("a"))
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
-                    sprite.flipX = true;
+                    idle = false;
+                    run = true;
+                    grab_item = false;
+                    dead = false;
+
+                    SetBoolValue();
+
+                    var input = Input.inputString;
+
+                    if (input.Equals("a"))
+                    {
+                        sprite.flipX = true;
+                    }
+                    else if (input.Equals("d"))
+                    {
+                        sprite.flipX = false;
+                    }
                 }
-                else if (input.Equals("d"))
+
+                else if (Input.GetKey(KeyCode.E))
                 {
-                    sprite.flipX = false;
+                    idle = false;
+                    run = false;
+                    grab_item = true;
+                    dead = false;
+
+                    SetBoolValue();
+                }
+
+                else
+                {
+                    idle = true;
+                    run = false;
+                    grab_item = false;
+                    dead = false;
+
+                    SetBoolValue();
                 }
             }
-
-            else if (Input.GetKey(KeyCode.E))
-            {
-                idle = false;
-                run = false;
-                grab_item = true;
-                dead = false;
-
-                SetBoolValue();
-            }
-
             else
             {
                 idle = true;

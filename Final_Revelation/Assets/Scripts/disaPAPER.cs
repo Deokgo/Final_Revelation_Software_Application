@@ -119,6 +119,14 @@ public class disaPAPER : MonoBehaviour
             Skeleton3.Instance.TriggerDialogue();
         }
     }
+    public void GrimReaperInteraction()
+    {
+        string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
+        if (gameElementTag == "Reaper")
+        {
+            Reaper.Instance.TriggerDialogue();
+        }
+    }
     IEnumerator getPlayerLevel(string url, string username)
     {
         WWWForm form = new WWWForm();
