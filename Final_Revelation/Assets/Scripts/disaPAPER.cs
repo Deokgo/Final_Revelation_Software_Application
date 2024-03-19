@@ -96,6 +96,22 @@ public class disaPAPER : MonoBehaviour
         StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
         //gameObject.SetActive(false);
     }
+    public void SkeletonInteraction()
+    {
+        string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
+        if (gameElementTag == "Skeleton1")
+        {
+            Skeleton1.Instance.TriggerDialogue();
+        }
+        else if (gameElementTag == "Skeleton2")
+        {
+            Skeleton2.Instance.TriggerDialogue();
+        }
+        else if (gameElementTag == "Skeleton3")
+        {
+            Skeleton3.Instance.TriggerDialogue();
+        }
+    }
     IEnumerator getPlayerLevel(string url, string username)
     {
         WWWForm form = new WWWForm();

@@ -158,7 +158,7 @@ public class Movement : MonoBehaviour
             lifeObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        //DialogueTrigger.Instance.TriggerDialogue();
+        introNewGame.Instance.TriggerDialogue();
 
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
