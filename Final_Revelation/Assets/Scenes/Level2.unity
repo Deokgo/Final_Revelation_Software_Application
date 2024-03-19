@@ -33056,7 +33056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 975349562}
   sprite: {fileID: 0}
-  moveSpeed: 4
+  moveSpeed: 6
   speedLimiter: 0.7
   rb: {fileID: 0}
   go: {fileID: 0}
@@ -33101,7 +33101,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &975349561
 BoxCollider2D:
   m_ObjectHideFlags: 0

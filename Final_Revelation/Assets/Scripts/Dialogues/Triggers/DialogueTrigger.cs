@@ -7,7 +7,6 @@ using UnityEngine;
 public class DialogueCharacter
 {
     public string name;
-    //public Sprite icon;
 }
 
 [System.Serializable]
@@ -26,18 +25,5 @@ public class Dialogue
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
 
-    public static DialogueTrigger Instance;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
-
-    public void TriggerDialogue()
-    {
-        DialogueManager.Instance.StartDialogue(dialogue);
-    }
 }

@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         if (isInRange)
-        {
+        {   
             if (Input.GetKeyDown(interactKey))
             {
                 interactAction.Invoke();
@@ -31,7 +31,7 @@ public class Interactable : MonoBehaviour
         {
             isInRange = true;
             exclamationPoint.SetActive(true); // Show the exclamation point
-            //DialogueTrigger.Instance.TriggerDialogue();
+            //lvl1Instruction.Instance.TriggerDialogue();
             //Debug.Log("Player is now in range");
         }
     }

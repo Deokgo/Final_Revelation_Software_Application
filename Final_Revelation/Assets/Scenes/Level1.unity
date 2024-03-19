@@ -65839,11 +65839,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.67
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.89
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66388,32 +66388,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1207150573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4fa774758d64c4988c9a03afda55eb, type: 3}
+  m_Script: {fileID: 11500000, guid: f4f4e51b52dcf334198e2fb2cc42855b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
     dialogueLines:
     - character:
         name: '*'
-      line: A detective woke up from an unknown surrounding, wondering what happened
+      line: The detective woke up from an unknown surrounding, wondering what happened
         and why he was there.
     - character:
         name: '*'
-      line: He looked out the whole area and saw an old building in front of him.
+      line: 'He looked out the whole area and saw an old building in front of him. '
     - character:
         name: '*'
       line: In that old building, he saw some clues hanging around, and he found
         a key opening the main entrance of the building.
     - character:
         name: '*'
-      line: When he opened the door, he saw the lobby (first floor) was filled with
-        dead bodies.
+      line: When he opened the door, he was flustered and saw the lobby (first floor)
+        was filled with dead bodies.
     - character:
         name: '*'
-      line: Your goal is to find clues and evidence behind the dead bodies.
+      line: Help the detective to find more clues and evidence behind the scenario.
     - character:
         name: '*'
-      line: You will soon discover the Final Revelation. Goodluck!
+      line: You must enter the rooms with maze that he must go through to find more
+        evidence.
+    - character:
+        name: '*'
+      line: Goodluck!
 --- !u!1 &1227715623
 GameObject:
   m_ObjectHideFlags: 0
@@ -68751,6 +68755,7 @@ GameObject:
   - component: {fileID: 1805854700}
   - component: {fileID: 1805854703}
   - component: {fileID: 1805854701}
+  - component: {fileID: 1805854704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -68819,7 +68824,7 @@ Transform:
   m_GameObject: {fileID: 1805854697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57, y: -33.3, z: 0}
+  m_LocalPosition: {x: -0.11, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68839,8 +68844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1805854702}
-  sprite: {fileID: 0}
-  moveSpeed: 4
+  sprite: {fileID: 1805854698}
+  moveSpeed: 6
   speedLimiter: 0.7
   rb: {fileID: 0}
   go: {fileID: 0}
@@ -68853,7 +68858,7 @@ MonoBehaviour:
   - Life3
   - Life2
   - Life1
-  delay: 3
+  delay: 2.95
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
@@ -68952,6 +68957,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4375, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &1805854704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805854697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2698062c5ad02e4ca3fded76b17f501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: Detective
+      line: Have a great day ahead!
+    - character:
+        name: Detective
+      line: Bye!
 --- !u!1 &1836194934
 GameObject:
   m_ObjectHideFlags: 0
