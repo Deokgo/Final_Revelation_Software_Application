@@ -29,6 +29,9 @@ TagManager:
   - MainDoor_R
   - MainDoor_L
   - MainChest
+  - Chest
+  - UserInput
+  - Jumpscare
   layers:
   - Default
   - TransparentFX
