@@ -16,6 +16,9 @@ public class CheckChest : MonoBehaviour
     private Sprite img1;
     public GameObject MyImage;
     public GameObject ImageHolder;
+    public string playerUsername = "deokgoo";
+    public GameObject Jumpscare, ImageJumpscare, UserInput;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,7 @@ public class CheckChest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Init()
@@ -34,29 +37,23 @@ public class CheckChest : MonoBehaviour
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
         MyImage = GameObject.FindWithTag("ImageFrame");
         ImageHolder = MyImage.transform.Find("ImageHolder").gameObject;
+        Jumpscare = GameObject.FindWithTag("Jumpscare");
+        ImageJumpscare = Jumpscare.transform.Find("ImageJumpscare").gameObject;
+        UserInput = GameObject.FindWithTag("UserInput");
     }
 
     public void FakeChest()
     {
-        if (paperText.text == "5/5")
-        {
-            Debug.Log("This Chest is fake.");
-        }
-        else
-        {
-            Debug.Log("Find all the papers first.");
-        }
+        Image imageComponent = ImageJumpscare.GetComponent<Image>();
+        img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare2");
+        imageComponent.sprite = img1;
+        ImageJumpscare.SetActive(true);
+        audioSource.Play();
+        StartCoroutine(DisableImg());
     }
-
-    public void MainChest()
+    IEnumerator DisableImg()
     {
-        Debug.Log("Find all the papers first.");
-        if (paperText.text == "5/5")
-        {
-            Image imageComponent = ImageHolder.GetComponent<Image>();
-            img1 = Resources.Load<Sprite>("Clues/Clue2");
-            imageComponent.sprite = img1;
-            ImageHolder.SetActive(true);
-        }
+        yield return new WaitForSeconds(2);
+        ImageJumpscare.SetActive(false);
     }
 }

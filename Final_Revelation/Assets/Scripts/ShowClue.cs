@@ -13,7 +13,7 @@ public class ShowClue : MonoBehaviour
     public TextMeshProUGUI paperText;
     public GameObject MyImage;
     public GameObject ImageHolder;
-    private Sprite img1;
+    public Sprite img1;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,6 @@ public class ShowClue : MonoBehaviour
         if (paperText.text == "5/5")
         {
             Image imageComponent = ImageHolder.GetComponent<Image>();
-            img1 = Resources.Load<Sprite>("Clues/Clue_1"); // Replace with the actual path and sprite name without the extension
             imageComponent.sprite = img1; // Assign the loaded sprite to the image component
             ImageHolder.SetActive(true);
         }

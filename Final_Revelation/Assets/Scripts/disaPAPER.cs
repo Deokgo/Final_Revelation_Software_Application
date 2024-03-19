@@ -89,6 +89,13 @@ public class disaPAPER : MonoBehaviour
                 imageComponent.sprite = img1;
                 ImageHolder.SetActive(true);
             }
+            if ((paperText.text == "5/5") && (currentlvl == 2))
+            {
+                Image imageComponent = ImageHolder.GetComponent<Image>();
+                img1 = Resources.Load<Sprite>("Clues/Clue2");
+                imageComponent.sprite = img1;
+                ImageHolder.SetActive(true);
+            }
         }
         paperCollected = int.Parse(paperText.text.Split('/')[0]);
         //keyCollected = int.Parse(keyText.text.Split('/')[0]); //Menu_Script.userInput
