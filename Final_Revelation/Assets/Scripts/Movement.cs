@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 4.0f;
     public float speedLimiter = 0.7f;
     public Rigidbody2D rb;
-    public GameObject go, lifeObject;
+    public GameObject go, lifeObject, UserInput;
     public TextMeshProUGUI paperText;
     public TextMeshProUGUI keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            if (DialogueManager.Instance.isDialogueActive == false)
+            if ((DialogueManager.Instance.isDialogueActive == false) && (UserInput.GetComponent<Canvas>().enabled == false))
             {
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
@@ -157,12 +157,19 @@ public class Movement : MonoBehaviour
         animator.SetBool("Grab_Item", grab_item);
         animator.SetBool("Dead", dead);
     }
+
+    public void Dialogue()
+    {
+        introNewGame.Instance.TriggerDialogue();
+    }
+
     public void Init()
     {
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         go = GameObject.FindWithTag("Player");
         rb = go.GetComponent<Rigidbody2D>();
+        UserInput = GameObject.FindWithTag("UserInput");
 
         for (int i = 1; i < 3; i++)
         {
@@ -170,9 +177,9 @@ public class Movement : MonoBehaviour
             lifeObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        introNewGame.Instance.TriggerDialogue();
-
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
+
+        Dialogue();
     }
 
     void Run()
@@ -219,7 +226,7 @@ public class Movement : MonoBehaviour
         if (col.gameObject.CompareTag("Ghost"))
         {
             // SFX
-            //audioPlayer.Play();
+            audioPlayer.Play();
 
             paperCollected = int.Parse(paperText.text.Split('/')[0]);
             //keyCollected = int.Parse(keyText.text.Split('/')[0]);
@@ -303,7 +310,6 @@ public class Movement : MonoBehaviour
         }
 
         //Set player's progress
-
         float x, y;
         string[] player = (uwr.downloadHandler.text).Split('/');
         x = float.Parse(player[0]);

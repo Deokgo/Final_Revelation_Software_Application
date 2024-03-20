@@ -37,6 +37,7 @@ TagManager:
   - Skeleton2
   - Skeleton3
   - Reaper
+  - Input
   layers:
   - Default
   - TransparentFX

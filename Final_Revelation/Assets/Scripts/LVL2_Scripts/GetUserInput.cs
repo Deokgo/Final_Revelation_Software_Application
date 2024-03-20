@@ -22,6 +22,8 @@ public class GetUserInput : MonoBehaviour
     private double player_position_y = 0.01465917;
     private int remainingHealth = 3;
 
+
+
     public void ValidateInput()
     {
         string input = inputField.text;
@@ -37,7 +39,7 @@ public class GetUserInput : MonoBehaviour
         {
             resultText.text = "Wrong!";
         }
-    }
+    }   
 
     IEnumerator insertProgressPlayer(string url, string username, int nextLvl, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth)
     {
