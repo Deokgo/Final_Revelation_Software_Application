@@ -17,8 +17,7 @@ public class Movement : MonoBehaviour
     public float speedLimiter = 0.7f;
     public Rigidbody2D rb;
     public GameObject go, lifeObject, UserInput;
-    public TextMeshProUGUI paperText;
-    public TextMeshProUGUI keyText;
+    public TextMeshProUGUI paperText, keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
     public string playerUsername = "deokgoo";
@@ -35,17 +34,9 @@ public class Movement : MonoBehaviour
     public AudioSource audioPlayer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        try
-        {
-            keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
-        }
-        catch (Exception)
-        {
-            ;
-        }
         Init();
     }
 
@@ -227,7 +218,7 @@ public class Movement : MonoBehaviour
             // SFX
             audioPlayer.Play();
 
-            paperCollected = int.Parse(paperText.text.Split('/')[0]);
+            //paperCollected = int.Parse(paperText.text.Split('/')[0]);
             //keyCollected = int.Parse(keyText.text.Split('/')[0]);
             remainingHealth -= 1;
             try
@@ -282,7 +273,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            //Debug.Log("Received: " + uwr.downloadHandler.text);
         }
 
         currentlvl = int.Parse(uwr.downloadHandler.text);
@@ -305,7 +296,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            //Debug.Log("Received: " + uwr.downloadHandler.text);
         }
 
         //Set player's progress
@@ -317,6 +308,7 @@ public class Movement : MonoBehaviour
         paperText.text = player[2] + "/5";
         if (keyText.text != null)
         {
+            //Debug.Log("Hindi ako null: " + player[3]);
             keyText.text = player[3] + "/1";
             keyCollected = int.Parse(player[3]);
         }

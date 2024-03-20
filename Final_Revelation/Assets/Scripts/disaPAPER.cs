@@ -96,9 +96,20 @@ public class disaPAPER : MonoBehaviour
                 imageComponent.sprite = img1;
                 ImageHolder.SetActive(true);
             }
+            if ((paperText.text == "5/5") && (currentlvl == 3))
+            {
+                Image imageComponent = ImageHolder.GetComponent<Image>();
+                img1 = Resources.Load<Sprite>("Clues/Clue_3");
+                imageComponent.sprite = img1;
+                ImageHolder.SetActive(true);
+            }
         }
         paperCollected = int.Parse(paperText.text.Split('/')[0]);
-        //keyCollected = int.Parse(keyText.text.Split('/')[0]); //Menu_Script.userInput
+        if (keyText != null)
+        {
+            keyCollected = int.Parse(keyText.text.Split('/')[0]);
+        }
+
         StartCoroutine(storeCollectedItem("http://localhost/unity2/gameElementAdd.php", playerUsername, currentlvl, gameElementTag));
         StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, go.transform.position.x, go.transform.position.y, paperCollected, keyCollected, remainingHealth, () => gameObject.SetActive(false))); // Pass a callback to run after the coroutine));
         //gameObject.SetActive(false);
@@ -141,7 +152,7 @@ public class disaPAPER : MonoBehaviour
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            //Debug.Log("Received: " + uwr.downloadHandler.text);
         }
 
         currentlvl = int.Parse(uwr.downloadHandler.text);
@@ -208,7 +219,7 @@ public class disaPAPER : MonoBehaviour
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            //Debug.Log("Received: " + uwr.downloadHandler.text);
         }
 
         string[] gameElements = (uwr.downloadHandler.text).Split('/');
