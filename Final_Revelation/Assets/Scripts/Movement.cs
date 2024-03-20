@@ -37,7 +37,6 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Init();
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
         try
         {
@@ -47,7 +46,7 @@ public class Movement : MonoBehaviour
         {
             ;
         }
-
+        Init();
     }
 
     // Update is called once per frame
@@ -316,10 +315,15 @@ public class Movement : MonoBehaviour
         y = float.Parse(player[1]);
         Debug.Log("Paper mo ay:" + player[2]);
         paperText.text = player[2] + "/5";
-        //keyText.text = player[3] + "/1";
+        if (keyText.text != null)
+        {
+            keyText.text = player[3] + "/1";
+            keyCollected = int.Parse(player[3]);
+        }
+
 
         paperCollected = int.Parse(player[2]);
-        // keyCollected = int.Parse(player[3]);
+
         remainingHealth = int.Parse(player[4]);
         SetLives();
 
