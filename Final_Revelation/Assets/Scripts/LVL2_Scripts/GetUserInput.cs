@@ -21,14 +21,14 @@ public class GetUserInput : MonoBehaviour
     private double player_position_x = -0.08565235;
     private double player_position_y = 0.01465917;
     private int remainingHealth = 3;
-
+    public Animator animator;
 
 
     public void ValidateInput()
     {
         string input = inputField.text;
 
-        if(input.ToLower() == "andrew")
+        if (input.ToLower() == "andrew")
         {
             StartCoroutine(insertProgressPlayer("http://localhost/unity2/progressInsert.php", playerUsername, nextLvl, player_position_x, player_position_y, paperCollected, keyCollected, remainingHealth));
             resultText.text = "Correct!";
@@ -39,7 +39,24 @@ public class GetUserInput : MonoBehaviour
         {
             resultText.text = "Wrong!";
         }
-    }   
+    }
+    public void CheckCode()
+    {
+        string input = inputField.text;
+        animator = GameObject.FindWithTag("Safe").GetComponent<Animator>();
+        if (input == "0301")
+        {
+            animator.SetBool("closed", false);
+            animator.SetBool("opened", true);
+            animator.SetBool("empty", false);
+            resultText.text = "Correct!";
+            Debug.Log("CONGRATULATIONS");
+        }
+        else
+        {
+            resultText.text = "Wrong!";
+        }
+    }
 
     IEnumerator insertProgressPlayer(string url, string username, int nextLvl, double player_position_x, double player_position_y, int paperCollected, int keyCollected, int remainingHealth)
     {
