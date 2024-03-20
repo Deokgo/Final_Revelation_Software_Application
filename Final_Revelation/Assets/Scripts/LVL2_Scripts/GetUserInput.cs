@@ -44,7 +44,7 @@ public class GetUserInput : MonoBehaviour
     {
         string input = inputField.text;
         animator = GameObject.FindWithTag("Safe").GetComponent<Animator>();
-        if (input == "0301")
+        if (input == "0301") //do this if closed is true
         {
             animator.SetBool("closed", false);
             animator.SetBool("opened", true);
