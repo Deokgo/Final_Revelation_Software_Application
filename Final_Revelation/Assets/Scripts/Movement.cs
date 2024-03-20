@@ -159,7 +159,7 @@ public class Movement : MonoBehaviour
 
     public void Dialogue()
     {
-        introNewGame.Instance.TriggerDialogue();
+        //introNewGame.Instance.TriggerDialogue();
     }
 
     public void Init()

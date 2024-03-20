@@ -9,16 +9,21 @@ public class Interactable : MonoBehaviour
     public KeyCode interactKey;
     public UnityEvent interactAction;
     public GameObject exclamationPoint;
+
+    public GameObject PlayerCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
+        PlayerCanvas = GameObject.FindWithTag("PlayerCanvas");
+        exclamationPoint = PlayerCanvas.transform.Find("ExclamationMark").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (isInRange)
-        {   
+        {
             if (Input.GetKeyDown(interactKey))
             {
                 interactAction.Invoke();
