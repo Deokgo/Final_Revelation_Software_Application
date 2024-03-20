@@ -22,8 +22,12 @@ public class GetUserInput : MonoBehaviour
     private double player_position_y = 0.01465917;
     private int remainingHealth = 3;
     public Animator animator;
+    public GameObject UserInput;
 
-
+    void Start()
+    {
+        UserInput = GameObject.FindWithTag("UserInput");
+    }
     public void ValidateInput()
     {
         string input = inputField.text;
@@ -51,6 +55,7 @@ public class GetUserInput : MonoBehaviour
             animator.SetBool("empty", false);
             resultText.text = "Correct!";
             Debug.Log("CONGRATULATIONS");
+            UserInput.GetComponent<Canvas>().enabled = false;
         }
         else
         {
