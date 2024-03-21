@@ -78,3 +78,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Objects
+    uniqueID: 2444277913
+    locked: 0
+  - name: Player
+    uniqueID: 2600027075
+    locked: 0
+  - name: Screen
+    uniqueID: 2633745431
+    locked: 0
+  - name: Dialogue
+    uniqueID: 3210168827
+    locked: 0
+  - name: PopUp
+    uniqueID: 559049943
+    locked: 0
