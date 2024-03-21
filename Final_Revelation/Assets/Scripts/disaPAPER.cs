@@ -30,6 +30,7 @@ public class disaPAPER : MonoBehaviour
     private Sprite img1;
     public GameObject MyImage;
     public GameObject ImageHolder;
+    public int numInteract = 0;
 
     void Start()
     {
@@ -133,9 +134,14 @@ public class disaPAPER : MonoBehaviour
     public void GrimReaperInteraction()
     {
         string gameElementTag = gameObject.tag; // Retrieve the tag of the paper
-        if (gameElementTag == "Reaper")
+        if (gameElementTag == "Reaper" && numInteract == 0)
         {
             Reaper.Instance.TriggerDialogue();
+            numInteract++;
+        }
+        else if (gameElementTag == "Reaper" && numInteract == 1)
+        {
+            Reaper2.Instance.TriggerDialogue();
         }
     }
     IEnumerator getPlayerLevel(string url, string username)

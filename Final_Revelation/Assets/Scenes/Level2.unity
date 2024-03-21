@@ -619,6 +619,7 @@ MonoBehaviour:
   audioPlayerPaper: {fileID: 930480746}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  numInteract: 0
 --- !u!1 &77437185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1447,7 @@ MonoBehaviour:
   paperCollected: 0
   keyCollected: 0
   animator: {fileID: 0}
+  UserInput: {fileID: 0}
 --- !u!1 &199179320
 GameObject:
   m_ObjectHideFlags: 0
@@ -32436,6 +32438,7 @@ MonoBehaviour:
   audioPlayerPaper: {fileID: 930480746}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  numInteract: 0
 --- !u!1 &476255922
 GameObject:
   m_ObjectHideFlags: 0
@@ -33962,6 +33965,7 @@ GameObject:
   - component: {fileID: 742635696}
   - component: {fileID: 742635699}
   - component: {fileID: 742635700}
+  - component: {fileID: 742635701}
   m_Layer: 0
   m_Name: GrimReaper
   m_TagString: Reaper
@@ -34085,6 +34089,7 @@ MonoBehaviour:
   audioPlayerPaper: {fileID: 0}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  numInteract: 0
 --- !u!114 &742635700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34146,6 +34151,24 @@ MonoBehaviour:
     - character:
         name: Grim Reaper
       line: ...
+--- !u!114 &742635701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742635695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384678ada08f373498d19747311a1141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: Grim Reaper
+      line: 'You found all the clues. I''m sure you already have an idea who''s the
+        killer. '
 --- !u!1001 &774723843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34355,6 +34378,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     dialogueLines:
+    - character:
+        name: '*'
+      line: You have successfully open the door to the next room.
+    - character:
+        name: '*'
+      line: A mysterious person appeared in the room.
     - character:
         name: Detective
       line: Who is that?
@@ -35521,6 +35550,7 @@ MonoBehaviour:
   audioPlayerPaper: {fileID: 930480746}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  numInteract: 0
 --- !u!1 &1186502906
 GameObject:
   m_ObjectHideFlags: 0
@@ -88998,6 +89028,7 @@ MonoBehaviour:
   audioPlayerPaper: {fileID: 930480746}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  numInteract: 0
 --- !u!1 &1225767503
 GameObject:
   m_ObjectHideFlags: 0
@@ -89111,6 +89142,7 @@ MonoBehaviour:
   audioPlayerPaper: {fileID: 930480746}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  numInteract: 0
 --- !u!1 &1234470440
 GameObject:
   m_ObjectHideFlags: 0
@@ -91600,7 +91632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289.9, y: 155.9}
+  m_AnchoredPosition: {x: 292.39996, y: 188.90002}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1926930718
