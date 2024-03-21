@@ -35,7 +35,7 @@ public class disaPAPER : MonoBehaviour
     void Start()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        //keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
+        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         go = GameObject.FindWithTag("Player");
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
         MyImage = GameObject.FindWithTag("ImageFrame");
@@ -100,7 +100,7 @@ public class disaPAPER : MonoBehaviour
             if ((paperText.text == "5/5") && (currentlvl == 3))
             {
                 Image imageComponent = ImageHolder.GetComponent<Image>();
-                img1 = Resources.Load<Sprite>("Clues/Clue_3");
+                img1 = Resources.Load<Sprite>("Images/diary");
                 imageComponent.sprite = img1;
                 ImageHolder.SetActive(true);
             }

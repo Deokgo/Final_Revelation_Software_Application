@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
+        //keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         Init();
     }
 
@@ -217,8 +217,11 @@ public class Movement : MonoBehaviour
             // SFX
             audioPlayer.Play();
 
-            //paperCollected = int.Parse(paperText.text.Split('/')[0]);
-            //keyCollected = int.Parse(keyText.text.Split('/')[0]);
+            paperCollected = int.Parse(paperText.text.Split('/')[0]);
+            if (keyText != null)
+            {
+                keyCollected = int.Parse(keyText.text.Split('/')[0]);
+            }
             remainingHealth -= 1;
             try
             {
@@ -307,7 +310,7 @@ public class Movement : MonoBehaviour
         paperText.text = player[2] + "/5";
         if (keyText.text != null)
         {
-            //Debug.Log("Hindi ako null: " + player[3]);
+            Debug.Log("Hindi ako null: " + player[3]);
             keyText.text = player[3] + "/1";
             keyCollected = int.Parse(player[3]);
         }
@@ -328,6 +331,5 @@ public class Movement : MonoBehaviour
         }
 
         go.transform.position = new Vector3(x, y, 10);
-
     }
 }
