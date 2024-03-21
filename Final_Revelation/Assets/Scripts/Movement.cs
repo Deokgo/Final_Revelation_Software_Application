@@ -169,8 +169,6 @@ public class Movement : MonoBehaviour
         }
 
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
-
-        Dialogue();
     }
 
     void Run()
@@ -314,11 +312,15 @@ public class Movement : MonoBehaviour
             keyCollected = int.Parse(player[3]);
         }
 
-
         paperCollected = int.Parse(player[2]);
 
         remainingHealth = int.Parse(player[4]);
         SetLives();
+
+        if (paperCollected == 0 && keyCollected == 0 && remainingHealth == 3)
+        {
+            Dialogue();
+        }
 
         if (remainingHealth == 0)
         {

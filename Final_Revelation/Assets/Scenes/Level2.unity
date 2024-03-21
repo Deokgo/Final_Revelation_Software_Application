@@ -33639,19 +33639,19 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Detective
+        name: Rodolfo
       line: Who are you!
     - character:
         name: Anonymous
       line: ...
     - character:
-        name: Detective
+        name: Rodolfo
       line: Are you a Grim Reaper? Am I dead already?
     - character:
         name: Grim Reaper
       line: Yes, you are already dead.
     - character:
-        name: Detective
+        name: Rodolfo
       line: (Confused)
     - character:
         name: Grim Reaper
@@ -33661,7 +33661,7 @@ MonoBehaviour:
       line: She is currently in a hospital, she had an accident 2 weeks ago and still
         unconcious.
     - character:
-        name: Detective
+        name: Rodolfo
       line: I have a wife?  I'm married? No wonder I feel a sense of longiness towards
         to someone.
     - character:
@@ -33671,16 +33671,16 @@ MonoBehaviour:
         name: Grim Reaper
       line: But you can save her, if you identify the name of the killer.
     - character:
-        name: Detective
+        name: Rodolfo
       line: The one who killed the people in the lobby?
     - character:
-        name: Detective
+        name: Rodolfo
       line: Wait.. how will I know who is the killer?
     - character:
         name: Grim Reaper
       line: Just find the clues and you will soon find out.
     - character:
-        name: Detective
+        name: Rodolfo
       line: But how?!
     - character:
         name: Grim Reaper
@@ -33914,15 +33914,15 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: '*'
-      line: You have successfully open the door to the next room.
+      line: The detective have successfully open the door to the next room.
     - character:
         name: '*'
       line: A mysterious person appeared in the room.
     - character:
-        name: Detective
+        name: Rodolfo
       line: Who is that?
     - character:
-        name: Detective
+        name: Rodolfo
       line: Let's ask him.
 --- !u!1 &843211051
 GameObject:

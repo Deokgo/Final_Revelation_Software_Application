@@ -275,16 +275,16 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Detective
+        name: Rodolfo
       line: What is this?
     - character:
         name: Mysterious Skeleton 1
       line: '"In the room of echoes, only two will speak while the silent pair listens."'
     - character:
-        name: Detective
-      line: It must be a clue to solve the puzzle.
+        name: Rodolfo
+      line: It must be a clue or something.
     - character:
-        name: Detective
+        name: Rodolfo
       line: Let's keep looking.
 --- !u!1 &35574706
 GameObject:
@@ -23537,17 +23537,17 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Detective
+        name: Rodolfo
       line: Ohh, another Skeleton
     - character:
         name: Mysterious Skeleton 2
       line: '"One sibling shines brightly while the other hides in shadow. Each has
         their place, side by side, yet never together."'
     - character:
-        name: Detective
-      line: Hmmmm another clue. That makes sense.
+        name: Rodolfo
+      line: Hmmmm another clue. I wonder if there is a puzzle for these clues.
     - character:
-        name: Detective
+        name: Rodolfo
       line: Let's look for more
 --- !u!4 &374698856 stripped
 Transform:
@@ -23983,9 +23983,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HideUserInput, Assembly-CSharp
-        m_MethodName: HideInput
+      - m_Target: {fileID: 783948834}
+        m_TargetAssemblyTypeName: ImageHider, Assembly-CSharp
+        m_MethodName: HideImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -70729,8 +70729,8 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: '*'
-      line: The detective woke up from an unknown surrounding, wondering what happened
-        and why he was there.
+      line: The detective named [rodolfo] woke up from an unknown surrounding, wondering
+        what happened and why he was there.
     - character:
         name: '*'
       line: 'He looked out the whole area and saw an old building in front of him. '
@@ -70740,18 +70740,17 @@ MonoBehaviour:
         a key opening the main entrance of the building.
     - character:
         name: '*'
-      line: When he opened the door, he was flustered and saw the lobby (first floor)
-        was filled with dead bodies.
+      line: When he opened the door entrance, he was flustered and saw the lobby
+        (first floor) was filled with dead bodies.
     - character:
         name: '*'
-      line: Help the detective to find more clues and evidence behind the scenario.
+      line: He searched the whole area and found an open door leading to a room.
     - character:
         name: '*'
-      line: You must enter the rooms with maze that he must go through to find more
-        evidence.
+      line: He entered the room and then the door suddenly close.
     - character:
         name: '*'
-      line: Goodluck!
+      line: He continued searching the area...
 --- !u!1 &1232300511
 GameObject:
   m_ObjectHideFlags: 0
@@ -72086,7 +72085,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1661221865
   m_SortingOrder: 2
@@ -75195,17 +75194,17 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Detective
+        name: Rodolfo
       line: Another Skeleton.
     - character:
         name: Mysterious Skeleton 3
       line: '"Earth and Water lay dormant, while Air and Fire dance in harmony."'
     - character:
-        name: Detective
-      line: I think we can already guess the solution for the puzzle.
+        name: Rodolfo
+      line: I think we already find the clues.
     - character:
-        name: Detective
-      line: Let's proceed to the puzzle.
+        name: Rodolfo
+      line: Let's find the puzzle.
 --- !u!4 &1992768963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}

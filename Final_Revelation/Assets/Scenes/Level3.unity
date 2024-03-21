@@ -102714,15 +102714,15 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: '*'
-      line: You have successfully open the door going to the next room.
+      line: The detective have successfully open the door going to the next room.
     - character:
-        name: Detective
+        name: Rodolfo
       line: Phew! those monsters are absolutely terrifying.
     - character:
-        name: Detective
+        name: Rodolfo
       line: Is that the Grim Reaper?
     - character:
-        name: Detective
+        name: Rodolfo
       line: Let's talk to him.
 --- !u!4 &1263959965 stripped
 Transform:

@@ -102,8 +102,8 @@ public class Menu_Script : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("player_username", username);
         form.AddField("player_level", "1");
-        form.AddField("player_position_x", "-22.06852");
-        form.AddField("player_position_y", "30.67065");
+        form.AddField("player_position_x", "-0.08565235");
+        form.AddField("player_position_y", "0.01465917");
         form.AddField("paper_collected", "0");
         form.AddField("key_collected", "0");
         form.AddField("remaining_health", "3");
