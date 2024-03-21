@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour
     public GameObject PlayerCanvas;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerCanvas = GameObject.FindWithTag("PlayerCanvas");
         exclamationPoint = PlayerCanvas.transform.Find("ExclamationMark").gameObject;

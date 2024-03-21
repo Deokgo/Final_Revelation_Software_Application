@@ -37,6 +37,7 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
+        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         Init();
     }
 
