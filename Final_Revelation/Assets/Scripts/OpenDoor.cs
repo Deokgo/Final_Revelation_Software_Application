@@ -37,7 +37,7 @@ public class OpenDoor : MonoBehaviour
     private double player_position_x = -0.08565235;
     private double player_position_y = 0.01465917;
     private int remainingHealth = 3;
-
+    public GameObject FinalDoor;
 
 
     void Start()
@@ -91,6 +91,14 @@ public class OpenDoor : MonoBehaviour
             imageComponent.sprite = img1; // Assign the loaded sprite to the image component
             ImageHolder.SetActive(true);
             Debug.Log("THE DOOR IS LOCKED");
+        }
+    }
+    public void UnlockFinalDoor()
+    {
+        if (keyText.text == "1/1")
+        {
+            FinalDoor = GameObject.FindWithTag("FinalDoor");
+            FinalDoor.SetActive(false);
         }
     }
 
