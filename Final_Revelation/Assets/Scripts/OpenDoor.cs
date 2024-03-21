@@ -61,7 +61,7 @@ public class OpenDoor : MonoBehaviour
 
         if (torch1 == null || torch2 == null || torch3 == null || torch4 == null)
         {
-            Debug.Log("One of the torch references is not set.");
+            //Debug.Log("One of the torch references is not set.");
         }
     }
 

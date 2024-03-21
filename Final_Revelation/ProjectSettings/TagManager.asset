@@ -40,6 +40,7 @@ TagManager:
   - Input
   - PlayerCanvas
   - Safe
+  - FinalDoor
   layers:
   - Default
   - TransparentFX
