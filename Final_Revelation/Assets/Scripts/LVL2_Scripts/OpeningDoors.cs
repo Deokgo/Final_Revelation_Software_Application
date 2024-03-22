@@ -43,51 +43,30 @@ public class OpeningDoors : MonoBehaviour
 
     public void FakeDoor1()
     {
-        if (paperText.text == "5/5")
-        {
-            Image imageComponent = ImageJumpscare.GetComponent<Image>();
-            img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare1");
-            imageComponent.sprite = img1;
-            ImageJumpscare.SetActive(true);
-            audioSource.Play();
-            StartCoroutine(DisableImg());
-        }
-        else
-        {
-            Debug.Log("Find all the papers first.");
-        }
+        Image imageComponent = ImageJumpscare.GetComponent<Image>();
+        img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare1");
+        imageComponent.sprite = img1;
+        ImageJumpscare.SetActive(true);
+        audioSource.Play();
+        StartCoroutine(DisableImg());
     }
 
     public void FakeDoor2()
     {
-        if (paperText.text == "5/5")
-        {
-            Image imageComponent = ImageJumpscare.GetComponent<Image>();
-            img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare2");
-            imageComponent.sprite = img1;
-            ImageJumpscare.SetActive(true);
-            audioSource.Play();
-            StartCoroutine(DisableImg());
-        }
-        else
-        {
-            Debug.Log("Find all the papers first.");
-        }
+        Image imageComponent = ImageJumpscare.GetComponent<Image>();
+        img1 = Resources.Load<Sprite>("Jumpscare/Jumpscare2");
+        imageComponent.sprite = img1;
+        ImageJumpscare.SetActive(true);
+        audioSource.Play();
+        StartCoroutine(DisableImg());
     }
 
     public void MainDoor()
     {
         if(UserInput.GetComponent<Canvas>().enabled == false)
         {
-            if (paperText.text == "5/5")
-            {
-                Input.GetComponent<InputField>().text = null;
-                UserInput.GetComponent<Canvas>().enabled = true;
-            }
-            else
-            {
-                Debug.Log("Find all the papers first.");
-            }
+            Input.GetComponent<InputField>().text = null;
+            UserInput.GetComponent<Canvas>().enabled = true;
         }
         
     }
