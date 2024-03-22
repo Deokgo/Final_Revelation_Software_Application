@@ -94,6 +94,28 @@ public class Menu_Script : MonoBehaviour
             }
 
             if (uwr.downloadHandler.text == "Player Progress Deleted!")
+                StartCoroutine(truncateGameElement("http://localhost/unity2/truncateGameElement.php", playerUsername));
+        }
+    }
+    IEnumerator truncateGameElement(string url, string username)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+
+            if (uwr.downloadHandler.text == "Player Progress Deleted!")
                 StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", playerUsername));
         }
     }
