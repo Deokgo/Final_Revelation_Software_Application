@@ -23,6 +23,7 @@ public class GetUserInput : MonoBehaviour
     private int remainingHealth = 3;
     public Animator animator;
     public GameObject UserInput;
+    public AudioSource wrongSFX;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class GetUserInput : MonoBehaviour
         }
         else
         {
+            wrongSFX.Play();
             resultText.text = "Wrong!";
         }
     }
