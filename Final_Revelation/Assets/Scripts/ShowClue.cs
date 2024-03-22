@@ -12,7 +12,7 @@ public class ShowClue : MonoBehaviour
 {
     public TextMeshProUGUI paperText;
     public GameObject MyImage;
-    public GameObject ImageHolder;
+    public GameObject ImageHolder, UserInput;
     public Sprite img1;
     // Start is called before the first frame update
     void Start()
