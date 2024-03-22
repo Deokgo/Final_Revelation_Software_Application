@@ -35,7 +35,7 @@ public class disaPAPER : MonoBehaviour
     void Start()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
+        //keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         go = GameObject.FindWithTag("Player");
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
         MyImage = GameObject.FindWithTag("ImageFrame");

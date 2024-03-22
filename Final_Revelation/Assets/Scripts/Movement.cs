@@ -37,10 +37,12 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         paperText = GameObject.FindWithTag("PaperText").GetComponent<TextMeshProUGUI>();
-        //keyText = GameObject.FindWithTag("KeyText").GetComponent<TextMeshProUGUI>();
         Init();
     }
+    void Start()
+    {
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -308,7 +310,7 @@ public class Movement : MonoBehaviour
         y = float.Parse(player[1]);
         Debug.Log("Paper mo ay:" + player[2]);
         paperText.text = player[2] + "/5";
-        if (keyText.text != null)
+        if (keyText != null && !string.IsNullOrEmpty(keyText.text))
         {
             Debug.Log("Hindi ako null: " + player[3]);
             keyText.text = player[3] + "/1";
