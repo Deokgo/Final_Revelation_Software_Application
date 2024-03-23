@@ -148587,6 +148587,7 @@ GameObject:
   - component: {fileID: 1805854702}
   - component: {fileID: 1805854701}
   - component: {fileID: 1805854700}
+  - component: {fileID: 1805854704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -148789,6 +148790,99 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1805854704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805854697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce3c676b1b13ab4ab3635a5e161416d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: Rodolfo's Wife
+      line: Rodolfo!
+    - character:
+        name: Rodolfo
+      line: It was you all along... Why? How could you do this?
+    - character:
+        name: Andrew
+      line: Why, detective? For the thrill of it. For the game. You of all people
+        should understand the lure of the puzzle, the chase.
+    - character:
+        name: Rodolfo's Wife
+      line: This is no game! Lives are at stake here. You're a monster!
+    - character:
+        name: Rodolfo
+      line: I'm so sorry I brought this danger upon us. I promise, we will get through
+        this together.
+    - character:
+        name: Andrew
+      line: Ah, the touching reunion. But it's too late for promises, detective.
+        It ends here, one way or another.
+    - character:
+        name: Rodolfo
+      line: No, it ends with justice. You may have eluded me before, but now, I see
+        everything clearly.
+    - character:
+        name: '*'
+      line: (Someone appeared)
+    - character:
+        name: Andrew
+      line: W-who are y-you?
+    - character:
+        name: Grim Reaper
+      line: Your reign of terror ends now. It's time you answer for your crimes.
+    - character:
+        name: Andrew
+      line: no... No... NOOOO!!!...
+    - character:
+        name: '*'
+      line: (Grim Reaper and Killer disappears)
+    - character:
+        name: Rodolfo
+      line: My love, I've been holding on for this moment, to protect you one last
+        time. My journey here is done.
+    - character:
+        name: Rodolfo's Wife
+      line: But I'm not ready to let go...
+    - character:
+        name: Rodolfo
+      line: You're stronger than you know. Live a beautiful life, for both of us.
+        I'll always be with you, in the memories we've shared.
+    - character:
+        name: Rodolfo's Wife
+      line: I will... I promise. I love you.
+    - character:
+        name: Rodolfo
+      line: And I you, forever and beyond. Goodbye, my heart.
+    - character:
+        name: '*'
+      line: 'As the detective''s form begins to fade, a warm light envelops him,
+        the burden of his unfinished business lifting. '
+    - character:
+        name: '*'
+      line: He looks back at his wife, his figure now a silhouette against the glowing
+        light, and smiles one last time before disappearing completely.
+    - character:
+        name: '*'
+      line: (Player disappears)
+    - character:
+        name: Rodolfo's Wife
+      line: Goodbye, my love. Thank you.
+    - character:
+        name: '*'
+      line: ~The End~
+  characterName: {fileID: 1683056025}
+  dialogueArea: {fileID: 1453116318}
+  isDialogueActive: 0
+  typingSpeed: 0.02
+  animator: {fileID: 87404109}
 --- !u!1 &1863803945
 GameObject:
   m_ObjectHideFlags: 0

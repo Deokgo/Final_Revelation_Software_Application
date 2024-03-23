@@ -33916,10 +33916,11 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: '*'
-      line: The detective have successfully open the door to the next room.
+      line: As Rodolfo enters another room, he is startled by the presence of a grim
+        reaper. What puzzle awaits him this time?
     - character:
         name: '*'
-      line: A mysterious person appeared in the room.
+      line: (a mysterious person appeared in the room)
     - character:
         name: Rodolfo
       line: Who is that?

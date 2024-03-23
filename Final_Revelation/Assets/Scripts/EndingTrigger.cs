@@ -20,7 +20,7 @@ public class EndingTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Trigger the dialogue
-            //DialogueManager.ShowMessage(dialogueText);
+            Final_Scene_Dialogue.Instance.TriggerDialogue();
             Debug.Log("Player is here! Trigger ending dialogue");
         }
     }
