@@ -54,19 +54,18 @@ public class disaPAPER : MonoBehaviour
 
     void Update()
     {
-
-    }
-    void SetBoolValue()
-    {
-        idle = false;
-        run = false;
-        grab_item = true;
-        dead = false;
-        animator.SetBool("Idle", idle);
-        animator.SetBool("Run", run);
-        animator.SetBool("Grab_Item", grab_item);
-        animator.SetBool("Dead", dead);
-        Debug.Log("SetBoolValue called: Grab_Item set to true");
+        try
+        {
+            if (DialogueManager.Instance.isDialogueActive == false)
+                {
+                    audioPlayerPaper.Stop();
+                }
+        }
+        catch (UnassignedReferenceException)
+        {
+            ;
+        }
+        
     }
 
     public void Disappear()
@@ -129,6 +128,11 @@ public class disaPAPER : MonoBehaviour
         else if (gameElementTag == "Skeleton3")
         {
             Skeleton3.Instance.TriggerDialogue();
+        }
+        else if (gameElementTag == "musicbox")
+        {
+            audioPlayerPaper.Play();
+            MusicBox.Instance.TriggerDialogue();
         }
     }
     public void GrimReaperInteraction()
