@@ -42,6 +42,9 @@ TagManager:
   - Safe
   - FinalDoor
   - musicbox
+  - killer
+  - wife
+  - Reaper2
   layers:
   - Default
   - TransparentFX

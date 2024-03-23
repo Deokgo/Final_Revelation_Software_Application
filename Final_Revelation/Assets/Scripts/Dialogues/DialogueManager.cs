@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed = 0.05f;
 
     public Animator animator;
+    public GameObject GrimReaper, Killer, Wife, Player;
+    public int lineCounter;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class DialogueManager : MonoBehaviour
             lines.Enqueue(dialogueLine);
         }
 
+        lineCounter = lines.Count;
         DisplayNextDialogueLine();
     }
 
@@ -50,6 +53,30 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             return;
+        }
+        
+        if (lineCounter == 22)
+        {
+            GrimReaper = GameObject.FindWithTag("Reaper2");
+            Killer = GameObject.FindWithTag("killer");
+            Wife = GameObject.FindWithTag("wife");
+            Player = GameObject.FindWithTag("Player");
+
+            if (lines.Count == 15)
+            {
+                GrimReaper.transform.position = new Vector3(58, -64, 0);
+            }
+            if (lines.Count == 11)  
+            {
+                GrimReaper.SetActive(false);
+                Killer.SetActive(false);
+
+                Wife.transform.position = new Vector3(60, -65, 0);
+            }
+            if (lines.Count == 3)
+            {
+                Player.SetActive(false);
+            }
         }
 
         DialogueLine currentLine = lines.Dequeue();

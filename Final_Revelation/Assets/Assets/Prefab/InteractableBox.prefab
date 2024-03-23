@@ -62,6 +62,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  exclamationPoint: {fileID: 0}
+  PlayerCanvas: {fileID: 0}
 --- !u!61 &5551354030042250223
 BoxCollider2D:
   m_ObjectHideFlags: 0
