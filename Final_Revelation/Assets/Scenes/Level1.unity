@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 219959419}
   - component: {fileID: 219959418}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: PauseMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24896,7 +24896,7 @@ GameObject:
   - component: {fileID: 792466448}
   - component: {fileID: 792466447}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24964,7 +24964,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 792466448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1152692927}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &792466448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69390,7 +69402,7 @@ GameObject:
   - component: {fileID: 849174654}
   - component: {fileID: 849174653}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70418,6 +70430,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077570013}
   m_CullTransparentMesh: 1
+--- !u!1 &1152692926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152692928}
+  - component: {fileID: 1152692927}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1152692927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152692926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5039e5b3bba724d9a1eca3acc95871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenuCanvas: {fileID: 219959417}
+--- !u!4 &1152692928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152692926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.31607777, y: 4.0327287, z: 2.2644527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160508149
 GameObject:
   m_ObjectHideFlags: 0
@@ -71767,6 +71824,7 @@ MonoBehaviour:
   paperText: {fileID: 0}
   MyImage: {fileID: 0}
   ImageHolder: {fileID: 0}
+  UserInput: {fileID: 0}
   img1: {fileID: 21300000, guid: 19bbd23b3a8cf734e8ae8f5d0abef3a0, type: 3}
 --- !u!4 &1337869182
 Transform:
@@ -73046,6 +73104,7 @@ MonoBehaviour:
   keyCollected: 0
   animator: {fileID: 0}
   UserInput: {fileID: 0}
+  wrongSFX: {fileID: 0}
 --- !u!114 &1570222063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73475,7 +73534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55.8, y: -46}
+  m_AnchoredPosition: {x: 55.799988, y: -46}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1781448133
@@ -99992,7 +100051,7 @@ GameObject:
   - component: {fileID: 1913686378}
   - component: {fileID: 1913686377}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100060,7 +100119,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1913686378}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1152692927}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 219959417}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1913686378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100649,4 +100732,5 @@ SceneRoots:
   - {fileID: 783948835}
   - {fileID: 1369792695}
   - {fileID: 76269893}
+  - {fileID: 1152692928}
   - {fileID: 1512930501}
