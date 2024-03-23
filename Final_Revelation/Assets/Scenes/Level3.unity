@@ -100052,6 +100052,7 @@ GameObject:
   - component: {fileID: 438586425}
   - component: {fileID: 438586428}
   - component: {fileID: 438586427}
+  - component: {fileID: 438586429}
   m_Layer: 0
   m_Name: Safe
   m_TagString: Safe
@@ -100166,6 +100167,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &438586429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438586424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a2a3bf9c613354fb0514e57f72bf4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: '*'
+      line: '"The guardians have spoken, their numbers a path to the heart of our
+        memories ..."'
+    - character:
+        name: '*'
+      line: '"... Fourteen for our dance under the stars, seven for the day we became
+        us, one for the shelter we shared, and three for the years we celebrated
+        our love ..."'
 --- !u!1 &459460957
 GameObject:
   m_ObjectHideFlags: 0
@@ -100659,7 +100683,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 687194377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1805854702}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: RestartLevelProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 563453619}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 989785660}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &687194377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101911,6 +101971,10 @@ PrefabInstance:
     - target: {fileID: 7327866240826931658, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_Name
       value: InteractableBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327866240826931658, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -103347,6 +103411,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275441348}
   m_CullTransparentMesh: 1
+--- !u!1 &1296808639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296808641}
+  - component: {fileID: 1296808640}
+  m_Layer: 0
+  m_Name: MenuScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1296808640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296808639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce5c38a72ee3f748b5a98527610dd19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUsername: deokgoo
+--- !u!4 &1296808641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296808639}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1298494042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150334,4 +150443,5 @@ SceneRoots:
   - {fileID: 2028894426}
   - {fileID: 970134384}
   - {fileID: 563453620}
+  - {fileID: 1296808641}
   - {fileID: 1512930501}

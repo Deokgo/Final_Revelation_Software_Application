@@ -10,7 +10,6 @@ public class Menu_Script : MonoBehaviour
     public string playerUsername = "deokgoo";
     public static int currentlvl = 0;
 
-
     public void ResumeGame()
     {
         StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
@@ -19,7 +18,6 @@ public class Menu_Script : MonoBehaviour
     {
         StartCoroutine(truncatePlayerProgress("http://localhost/unity2/truncateProgress.php", playerUsername));
     }
-
     public void GotoPlayMenu()
     {
         SceneManager.LoadScene("PlayMenu");
@@ -28,7 +26,6 @@ public class Menu_Script : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
     public void GotoStart()
     {
         SceneManager.LoadScene("StartingMenu");
@@ -42,6 +39,7 @@ public class Menu_Script : MonoBehaviour
         userInput = username;
         Debug.Log(userInput);
     }
+
     IEnumerator getPlayerLevel(string url, string username)
     {
         WWWForm form = new WWWForm();
@@ -116,14 +114,14 @@ public class Menu_Script : MonoBehaviour
             }
 
             if (uwr.downloadHandler.text == "Player Progress Deleted!")
-                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", playerUsername));
+                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", playerUsername, 1));
         }
     }
-    IEnumerator storePlayerProgress(string url, string username)
+    IEnumerator storePlayerProgress(string url, string username, int lvl)
     {
         WWWForm form = new WWWForm();
         form.AddField("player_username", username);
-        form.AddField("player_level", "1");
+        form.AddField("player_level", lvl);
         form.AddField("player_position_x", "-0.08565235");
         form.AddField("player_position_y", "0.01465917");
         form.AddField("paper_collected", "0");
@@ -144,7 +142,53 @@ public class Menu_Script : MonoBehaviour
             }
 
             if (uwr.downloadHandler.text == "Player Progress Saved!")
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
+        }
+    }
+    IEnumerator restartGameElement(string url, string username, int lvl)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+
+            if (uwr.downloadHandler.text == "Level Game Elements Deleted!")
+                StartCoroutine(restartLevelProgress("http://localhost/unity2/restartProgress.php", username, lvl));
+        }
+    }
+    IEnumerator restartLevelProgress(string url, string username, int lvl)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+
+            if (uwr.downloadHandler.text == "Level Progress Restarted!")
+                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", username, lvl));
         }
     }
 }

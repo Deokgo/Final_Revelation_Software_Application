@@ -10,7 +10,7 @@ using System;
 
 public class Movement : MonoBehaviour
 {
-
+    public static Movement Instance;
     public Animator animator;
     public SpriteRenderer sprite;
     public float moveSpeed = 4.0f;
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     public float delay = 3;
     float timer;
 
-    public int currentlvl;
+    public int currentlvl = 0;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;      // Number of keys collected
     public int remainingHealth; // The player's remaining health
@@ -211,7 +211,10 @@ public class Movement : MonoBehaviour
             }
         }
     }
-
+    public void RestartLevelProgress()
+    {
+        StartCoroutine(restartGameElement("http://localhost/unity2/restartGameElement.php", playerUsername, currentlvl));
+    }
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ghost"))
@@ -333,5 +336,81 @@ public class Movement : MonoBehaviour
         }
 
         go.transform.position = new Vector3(x, y, 10);
+    }
+    IEnumerator storePlayerProgress(string url, string username, int lvl)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
+        form.AddField("player_position_x", "-0.08565235");
+        form.AddField("player_position_y", "0.01465917");
+        form.AddField("paper_collected", "0");
+        form.AddField("key_collected", "0");
+        form.AddField("remaining_health", "3");
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+
+            if (uwr.downloadHandler.text == "Player Progress Saved!")
+            {
+                StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
+            }
+        }
+    }
+    IEnumerator restartGameElement(string url, string username, int lvl)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+
+            if (uwr.downloadHandler.text == "Level Game Elements Deleted!")
+                StartCoroutine(restartLevelProgress("http://localhost/unity2/restartProgress.php", username, lvl));
+        }
+    }
+    IEnumerator restartLevelProgress(string url, string username, int lvl)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+        form.AddField("player_level", lvl);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+
+            if (uwr.downloadHandler.text == "Level Progress Restarted!")
+                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", username, lvl));
+        }
     }
 }

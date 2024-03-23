@@ -58,6 +58,8 @@ public class GetUserInput : MonoBehaviour
             resultText.text = "Correct!";
             Debug.Log("CONGRATULATIONS");
             UserInput.GetComponent<Canvas>().enabled = false;
+
+            SafeTrigger.Instance.TriggerDialogue();
         }
         else
         {
