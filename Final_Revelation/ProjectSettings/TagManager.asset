@@ -41,6 +41,7 @@ TagManager:
   - PlayerCanvas
   - Safe
   - FinalDoor
+  - musicbox
   layers:
   - Default
   - TransparentFX
