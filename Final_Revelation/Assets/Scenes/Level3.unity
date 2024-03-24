@@ -1378,11 +1378,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.28437582
+      value: 0.40390256
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.28437582
+      value: 0.39101675
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.z
@@ -1394,7 +1394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99904,13 +99904,13 @@ MonoBehaviour:
       line: How can I save her?
     - character:
         name: Grim Reaper
-      line: There is an important item locked inside a safe.
+      line: There is an important item locked inside a safe, protected by your memories.
     - character:
         name: Grim Reaper
-      line: You must find the safe and retrieve that item.
+      line: You must search for your memories, find the safe, and retrieve that item.
     - character:
         name: Detective
-      line: How will I use this item you were saying to save my wife
+      line: How will I use this item you were saying to save my wife?
     - character:
         name: Grim Reaper
       line: You will find the reason along the way.
@@ -100118,7 +100118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 52.8, y: -30.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0625, y: 2.1375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 225461574}
@@ -100601,7 +100601,7 @@ Transform:
   m_GameObject: {fileID: 438586424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.25, y: -25.32, z: 0}
+  m_LocalPosition: {x: 16.1, y: -13.9, z: 0}
   m_LocalScale: {x: 6.0002623, y: 5.4604545, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103411,8 +103411,8 @@ Transform:
   m_GameObject: {fileID: 1051096304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.06, y: -78.33, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.06, y: -78.339, z: 0}
+  m_LocalScale: {x: 1.4625, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1142832033}
@@ -103590,11 +103590,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.28437582
+      value: 0.4336731
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.28437582
+      value: 0.40168086
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.z
@@ -103692,7 +103692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.28437582
+      value: 0.40168086
       objectReference: {fileID: 0}
     - target: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
       propertyPath: m_LocalScale.y
@@ -104725,7 +104725,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.44, y: -46.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4625, y: 1.5125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1110440768}
@@ -104775,7 +104775,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: '*'
-      line: "\"\u266ADanced under the glow of fourteen stars.\u266A\""
+      line: "Playing \u266ADanced under the glow of fourteen stars.\u266A"
 --- !u!1 &1336262602
 GameObject:
   m_ObjectHideFlags: 0
@@ -149474,90 +149474,6 @@ Canvas:
   m_SortingLayerID: -1694940221
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!1 &1619965290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1619965292}
-  - component: {fileID: 1619965291}
-  m_Layer: 0
-  m_Name: Key
-  m_TagString: Key
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1619965291
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619965290}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1850689383
-  m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bfe1cee185a50284db9ed8f892579076, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1619965292
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619965290}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.6, y: 2.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1623908893
 GameObject:
   m_ObjectHideFlags: 0
@@ -151675,7 +151591,6 @@ SceneRoots:
   - {fileID: 306272600}
   - {fileID: 1892633928}
   - {fileID: 184176715}
-  - {fileID: 1619965292}
   - {fileID: 1153567716}
   - {fileID: 1051096306}
   - {fileID: 374135109}
