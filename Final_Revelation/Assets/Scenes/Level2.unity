@@ -684,6 +684,11 @@ MonoBehaviour:
   isDialogueActive: 0
   typingSpeed: 0.02
   animator: {fileID: 134558359}
+  GrimReaper: {fileID: 0}
+  Killer: {fileID: 0}
+  Wife: {fileID: 0}
+  Player: {fileID: 0}
+  lineCounter: 0
 --- !u!95 &134558359
 Animator:
   serializedVersion: 5
@@ -33836,52 +33841,57 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Rodolfo
-      line: Who are you!
-    - character:
-        name: Anonymous
-      line: ...
+        name: Grim Reaper
+      line: Greetings, Detective. We meet at the crossroads of fate and consequence.
     - character:
         name: Rodolfo
-      line: Are you a Grim Reaper? Am I dead already?
+      line: Who are you? And what do you mean?
     - character:
         name: Grim Reaper
-      line: Yes, you are already dead.
+      line: I am the one who guides souls to their final rest. But you, Detective,
+        have lingered. Your deeds of kindness have not gone unnoticed.
     - character:
         name: Rodolfo
-      line: (Confused)
+      line: My... deeds? I don't remember... My wife, is she...
     - character:
         name: Grim Reaper
-      line: Do you want to know where your wife currently in?
+      line: Your memories have faded, yet your heart's resolve remains strong. Your
+        wife is in grave danger, a consequence of a past you do not recall.
+    - character:
+        name: Detective
+      line: Danger? But how can I... I don't even remember how to save her.
     - character:
         name: Grim Reaper
-      line: She is currently in a hospital, she had an accident 2 weeks ago and still
-        unconcious.
+      line: The fog may cloud your sight, but not your purpose. There is one who
+        lurks in the shadows, a specter from your past life.
     - character:
         name: Rodolfo
-      line: I have a wife?  I'm married? No wonder I feel a sense of longiness towards
-        to someone.
+      line: A specter? Someone responsible for all this?
     - character:
         name: Grim Reaper
-      line: She has 5 days left in the land of the living.
-    - character:
-        name: Grim Reaper
-      line: But you can save her, if you identify the name of the killer.
+      line: Indeed. One whose deeds are cloaked in darkness. Your journey's next
+        step is to unveil this malevolence by name.
     - character:
         name: Rodolfo
-      line: The one who killed the people in the lobby?
-    - character:
-        name: Rodolfo
-      line: Wait.. how will I know who is the killer?
+      line: But how? My memories... they're shards of what once was.
     - character:
         name: Grim Reaper
-      line: Just find the clues and you will soon find out.
+      line: Look not with your eyes, but with your soul. The fragments of your past
+        will guide you. The clues are scattered, whispers in the silence.
     - character:
         name: Rodolfo
-      line: But how?!
+      line: And if I uncover this name, this... killer?
     - character:
         name: Grim Reaper
-      line: ...
+      line: Then you will have taken a step closer to mending the rifts torn by fate.
+        But be wary, Detective. Truth is a double-edged sword.
+    - character:
+        name: Rodolfo
+      line: I understand. For the sake of those I've sworn to protect, I'll uncover
+        the truth, no matter how hidden it may be.
+    - character:
+        name: Grim Reaper
+      line: Tread carefully, detective, for the shadows are ever watchful.
 --- !u!114 &742635701
 MonoBehaviour:
   m_ObjectHideFlags: 0

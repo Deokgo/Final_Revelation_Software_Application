@@ -99890,36 +99890,42 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
+        name: Grim Reaper
+      line: You've come far, Detective. The shadows begin to recede, yet one final
+        test remains.
+    - character:
+        name: Rodolfo
+      line: I can feel it, a thread linking me to what I've lost... to her.
+    - character:
+        name: Grim Reaper
+      line: Indeed. A bond that not even death can sever. Within the safe lies the
+        key to completing your journey. But the path is not laid bare.
+    - character:
+        name: Grim Reaper
+      line: To find the combination, you must delve into memories of a life once
+        lived. Four objects, each a beacon of moments shared with your beloved.
+    - character:
+        name: Rodolfo
+      line: And if I succeed? If I open the safe?
+    - character:
+        name: Grim Reaper
+      line: 'Then you shall find peace, not just for yourself, but for the soul you''ve
+        fought so hard to protect. '
+    - character:
+        name: Grim Reaper
+      line: Remember, Detective, even in the darkest of nights, love is the brightest
+        star.
+    - character:
         name: Detective
-      line: It is you again.
-    - character:
-        name: Grim Reaper
-      line: ...
-    - character:
-        name: Grim Reaper
-      line: Now that you already knew who the killer is. It is time to save your
-        wife.
-    - character:
-        name: Detective
-      line: How can I save her?
-    - character:
-        name: Grim Reaper
-      line: There is an important item locked inside a safe, protected by your memories.
-    - character:
-        name: Grim Reaper
-      line: You must search for your memories, find the safe, and retrieve that item.
-    - character:
-        name: Detective
-      line: How will I use this item you were saying to save my wife?
-    - character:
-        name: Grim Reaper
-      line: You will find the reason along the way.
+      line: I'll do it. For her, for the love we shared, I'll find these objects
+        and unlock the safe. And maybe, just maybe, I'll find peace.
     - character:
         name: Grim_Reaper
-      line: Goodluck.
+      line: Go forth, Detective. Let your heart be your compass, and may the bonds
+        of love light your way.
     - character:
         name: Detective
-      line: ...
+      line: Alicia...
 --- !u!114 &306272597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100293,7 +100299,7 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Rodolfo's Wife
+        name: Alicia
       line: Rodolfo!
     - character:
         name: Rodolfo
@@ -100303,7 +100309,7 @@ MonoBehaviour:
       line: Why, detective? For the thrill of it. For the game. You of all people
         should understand the lure of the puzzle, the chase.
     - character:
-        name: Rodolfo's Wife
+        name: Alicia
       line: This is no game! Lives are at stake here. You're a monster!
     - character:
         name: Rodolfo
@@ -100337,14 +100343,14 @@ MonoBehaviour:
       line: My love, I've been holding on for this moment, to protect you one last
         time. My journey here is done.
     - character:
-        name: Rodolfo's Wife
+        name: Alicia
       line: But I'm not ready to let go...
     - character:
         name: Rodolfo
       line: You're stronger than you know. Live a beautiful life, for both of us.
         I'll always be with you, in the memories we've shared.
     - character:
-        name: Rodolfo's Wife
+        name: Alicia
       line: I will... I promise. I love you.
     - character:
         name: Rodolfo
@@ -100361,7 +100367,7 @@ MonoBehaviour:
         name: '*'
       line: (Player disappears)
     - character:
-        name: Rodolfo's Wife
+        name: Alicia
       line: Goodbye, my love. Thank you.
     - character:
         name: '*'
@@ -150470,36 +150476,43 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Detective
-      line: It is you again.
+        name: Grim Reaper
+      line: You've come far, Detective. The shadows begin to recede, yet one final
+        test remains.
+    - character:
+        name: Rodolfo
+      line: I can feel it, a thread linking me to what I've lost... to her.
     - character:
         name: Grim Reaper
-      line: ...
+      line: Indeed. A bond that not even death can sever. Within the safe lies the
+        key to completing your journey. But the path is not laid bare.
     - character:
         name: Grim Reaper
-      line: Now that you already knew who the killer is. It is time to save your
-        wife.
+      line: To find the combination, you must delve into memories of a life once
+        lived. Four objects, each a beacon of moments shared with your beloved.
     - character:
-        name: Detective
-      line: How can I save her?
-    - character:
-        name: Grim Reaper
-      line: There is an important item locked inside a safe.
+        name: Rodolfo
+      line: I'll do it. For her, for the love we shared, I'll find these objects
+        and unlock the safe. And maybe, just maybe, I'll find peace.
     - character:
         name: Grim Reaper
-      line: You must find the safe and retrieve that item.
-    - character:
-        name: Detective
-      line: How will I use this item you were saying to save my wife
+      line: 'Then you shall find peace, not just for yourself, but for the soul you''ve
+        fought so hard to protect. '
     - character:
         name: Grim Reaper
-      line: You will find the reason along the way.
+      line: Remember, Detective, even in the darkest of nights, love is the brightest
+        star.
+    - character:
+        name: Rodolfo
+      line: I'll do it. For her, for the love we shared, I'll find these objects
+        and unlock the safe. And maybe, just maybe, I'll find peace.
     - character:
         name: Grim_Reaper
-      line: Goodluck.
+      line: Go forth, Detective. Let your heart be your compass, and may the bonds
+        of love light your way.
     - character:
         name: Detective
-      line: ...
+      line: Alicia...
 --- !u!114 &1892633925
 MonoBehaviour:
   m_ObjectHideFlags: 0

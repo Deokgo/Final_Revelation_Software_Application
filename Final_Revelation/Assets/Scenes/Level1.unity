@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 16695194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.71225, y: -11.192027, z: 9.925103}
+  m_LocalPosition: {x: -11.67, y: -11.07, z: 9.925103}
   m_LocalScale: {x: 6.84485, y: 7.1450515, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23414,7 +23414,7 @@ Transform:
   m_GameObject: {fileID: 362894407}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.2, y: -17.4, z: 9.925103}
+  m_LocalPosition: {x: -55.83, y: -23.9, z: 9.925103}
   m_LocalScale: {x: 6.84485, y: 7.14505, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23545,7 +23545,7 @@ MonoBehaviour:
         their place, side by side, yet never together."'
     - character:
         name: Rodolfo
-      line: Hmmmm another clue. I wonder if there is a puzzle for these clues.
+      line: Side by side? Yet never together?
     - character:
         name: Rodolfo
       line: Let's look for more
@@ -24060,7 +24060,7 @@ Transform:
   m_GameObject: {fileID: 494722546}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.735153, y: 49.453636, z: 10.124499}
+  m_LocalPosition: {x: -32.45, y: 59.47, z: 10.124499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -71426,6 +71426,11 @@ MonoBehaviour:
   isDialogueActive: 0
   typingSpeed: 0.02
   animator: {fileID: 1301095453}
+  GrimReaper: {fileID: 0}
+  Killer: {fileID: 0}
+  Wife: {fileID: 0}
+  Player: {fileID: 0}
+  lineCounter: 0
 --- !u!95 &1301095453
 Animator:
   serializedVersion: 5
@@ -73320,7 +73325,7 @@ Transform:
   m_GameObject: {fileID: 1700559435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6351547, y: 56.533638, z: 10.124499}
+  m_LocalPosition: {x: 15.53, y: 49.56, z: 10.124499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -74111,7 +74116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160.7, y: -46}
+  m_AnchoredPosition: {x: 160.70001, y: -46}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1869074724
@@ -100568,7 +100573,7 @@ Transform:
   m_GameObject: {fileID: 1986725077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.9, y: -39, z: 9.925103}
+  m_LocalPosition: {x: -56.85, y: -39.3, z: 9.925103}
   m_LocalScale: {x: 6.84485, y: 7.14505, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -100698,10 +100703,10 @@ MonoBehaviour:
       line: '"Earth and Water lay dormant, while Air and Fire dance in harmony."'
     - character:
         name: Rodolfo
-      line: I think we already find the clues.
+      line: I think we already have enough clues.
     - character:
         name: Rodolfo
-      line: Let's find the puzzle.
+      line: Let's solve the puzzle.
 --- !u!4 &1992768963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1432171002217880777, guid: 5e95bf50f8598ad4db7745e3d527652f, type: 3}
