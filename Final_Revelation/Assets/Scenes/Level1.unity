@@ -69470,7 +69470,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849174654}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1805854700}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: RestartLevelProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1152692927}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 219959417}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &849174654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89129,7 +89165,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 61
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 36
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -102218,8 +102254,8 @@ Tilemap:
     m_Data: {fileID: -975661611, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
   - m_RefCount: 11
     m_Data: {fileID: -175227894, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -409833096, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 5
     m_Data: {fileID: 740261160, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
   - m_RefCount: 7
@@ -102282,8 +102318,8 @@ Tilemap:
     m_Data: {fileID: -763771787, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 474980931, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -409833096, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -1667208254, guid: 2de5eefa291f025408e292f810eb6ad9, type: 3}
   - m_RefCount: 1
