@@ -1341,7 +1341,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1993773532}
         m_TargetAssemblyTypeName: Menu_Script, Assembly-CSharp
-        m_MethodName: ReadInput
+        m_MethodName: ResumeGame
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4721,8 +4721,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1993773532}
         m_TargetAssemblyTypeName: Menu_Script, Assembly-CSharp
-        m_MethodName: PlayGame
-        m_Mode: 1
+        m_MethodName: ResumeGame
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4854,8 +4854,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1993773532}
         m_TargetAssemblyTypeName: Menu_Script, Assembly-CSharp
-        m_MethodName: PlayGame
-        m_Mode: 1
+        m_MethodName: ReadInput
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

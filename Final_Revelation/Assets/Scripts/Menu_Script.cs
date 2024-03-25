@@ -9,9 +9,10 @@ public class Menu_Script : MonoBehaviour
     public static string userInput;
     public static int currentlvl = 0;
 
-    public void ResumeGame()
+    public void ResumeGame(string username)
     {
-        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", userInput));
+        userInput = username;
+        StartCoroutine(searchUsername2("http://localhost/unity2/searchUsername.php", userInput));
     }
     public void PlayGame()
     {
@@ -206,13 +207,38 @@ public class Menu_Script : MonoBehaviour
             }
             else
             {
-                Debug.Log("Received: " + uwr.downloadHandler.text);
+                Debug.Log("1Received: " + uwr.downloadHandler.text);
             }
             if (uwr.downloadHandler.text == "Username not found.")
                 StartCoroutine(insertPlayer("http://localhost/unity2/insertUsername.php", username));
             else
             {
-                Debug.Log("Username already exists.");
+                //Debug.Log("Username already exists.");
+            }
+        }
+    }
+    IEnumerator searchUsername2(string url, string username)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("2Received: " + uwr.downloadHandler.text);
+            }
+            if (uwr.downloadHandler.text == "Username exists.")
+                StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", userInput));
+            else
+            {
+                //Debug.Log("Username already exists.");
             }
         }
     }
