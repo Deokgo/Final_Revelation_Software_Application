@@ -211,6 +211,13 @@ public class Movement : MonoBehaviour
             }
         }
     }
+    public void SaveProgress()
+    {
+        Vector3 currentPosition = transform.position;
+        float xPosition = currentPosition.x;
+        float yPosition = currentPosition.y;
+        StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, xPosition, yPosition, paperCollected, keyCollected, remainingHealth));
+    }
     public void RestartLevelProgress()
     {
         StartCoroutine(restartGameElement("http://localhost/unity2/restartGameElement.php", playerUsername, currentlvl));
