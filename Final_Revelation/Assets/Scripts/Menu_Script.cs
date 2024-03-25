@@ -34,9 +34,9 @@ public class Menu_Script : MonoBehaviour
     {
         Application.Quit();
     }
-    public void ReadInput(string username)
+    public void ReadInput()
     {
-        userInput = username;
+        //userInput = username; //may times na dumodoble ung input sa database dahil dito I think...
         StartCoroutine(searchUsername("http://localhost/unity2/searchUsername.php", userInput));
         Debug.Log(userInput);
     }
@@ -213,6 +213,7 @@ public class Menu_Script : MonoBehaviour
                 StartCoroutine(insertPlayer("http://localhost/unity2/insertUsername.php", username));
             else
             {
+
                 //Debug.Log("Username already exists.");
             }
         }

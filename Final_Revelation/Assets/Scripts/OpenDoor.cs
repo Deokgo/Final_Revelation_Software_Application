@@ -32,7 +32,7 @@ public class OpenDoor : MonoBehaviour
     public ToggleTorch torch4;
 
     // 1st progress data for 
-    private string playerUsername = "";
+    private string playerUsername = Menu_Script.userInput;
     private int nextLvl = 2;
     private float player_position_x = -0.08565235f;
     private float player_position_y = 0.01465917f;
@@ -75,7 +75,6 @@ public class OpenDoor : MonoBehaviour
 
         if (!torch1.isTorchOn && torch2.isTorchOn && !torch3.isTorchOn && torch4.isTorchOn) // if the torches are in the correct order, it should open
         {
-            playerUsername = Menu_Script.userInput;
             StartCoroutine(insertProgressPlayer("http://localhost/unity2/progressInsert.php", playerUsername, nextLvl, player_position_x, player_position_y, paperCollected, keyCollected, remainingHealth));
             Debug.Log("CONGRATULATIONS");
             SceneManager.LoadScene("Level2");

@@ -14,7 +14,7 @@ public class GetUserInput : MonoBehaviour
     [SerializeField] Text resultText;
 
     // for the next level (3)
-    private string playerUsername = "deokgoo";
+    private string playerUsername = Menu_Script.userInput;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;
     private int nextLvl = 3;
