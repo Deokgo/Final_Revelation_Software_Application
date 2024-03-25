@@ -7,16 +7,15 @@ using UnityEngine.SceneManagement;
 public class Menu_Script : MonoBehaviour
 {
     public static string userInput;
-    public string playerUsername = "deokgoo";
     public static int currentlvl = 0;
 
     public void ResumeGame()
     {
-        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", userInput));
     }
     public void PlayGame()
     {
-        StartCoroutine(truncatePlayerProgress("http://localhost/unity2/truncateProgress.php", playerUsername));
+        StartCoroutine(truncatePlayerProgress("http://localhost/unity2/truncateProgress.php", userInput));
     }
     public void GotoPlayMenu()
     {
@@ -37,6 +36,7 @@ public class Menu_Script : MonoBehaviour
     public void ReadInput(string username)
     {
         userInput = username;
+        StartCoroutine(searchUsername("http://localhost/unity2/searchUsername.php", userInput));
         Debug.Log(userInput);
     }
 
@@ -92,7 +92,7 @@ public class Menu_Script : MonoBehaviour
             }
 
             if (uwr.downloadHandler.text == "Player Progress Deleted!")
-                StartCoroutine(truncateGameElement("http://localhost/unity2/truncateGameElement.php", playerUsername));
+                StartCoroutine(truncateGameElement("http://localhost/unity2/truncateGameElement.php", userInput));
         }
     }
     IEnumerator truncateGameElement(string url, string username)
@@ -114,7 +114,7 @@ public class Menu_Script : MonoBehaviour
             }
 
             if (uwr.downloadHandler.text == "Player Progress Deleted!")
-                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", playerUsername, 1));
+                StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", userInput, 1));
         }
     }
     IEnumerator storePlayerProgress(string url, string username, int lvl)
@@ -142,7 +142,7 @@ public class Menu_Script : MonoBehaviour
             }
 
             if (uwr.downloadHandler.text == "Player Progress Saved!")
-                StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
+                StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", userInput));
         }
     }
     IEnumerator restartGameElement(string url, string username, int lvl)
@@ -189,6 +189,53 @@ public class Menu_Script : MonoBehaviour
 
             if (uwr.downloadHandler.text == "Level Progress Restarted!")
                 StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", username, lvl));
+        }
+    }
+    IEnumerator searchUsername(string url, string username)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+            }
+            if (uwr.downloadHandler.text == "Username not found.")
+                StartCoroutine(insertPlayer("http://localhost/unity2/insertUsername.php", username));
+            else
+            {
+                Debug.Log("Username already exists.");
+            }
+        }
+    }
+    IEnumerator insertPlayer(string url, string username)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("player_username", username);
+
+        using (UnityWebRequest uwr = UnityWebRequest.Post(url, form))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                Debug.Log("Received: " + uwr.downloadHandler.text);
+                if (uwr.downloadHandler.text == "Username inserted successfully.")
+                    StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", username, 1));
+                SceneManager.LoadScene("Level1");
+            }
         }
     }
 }

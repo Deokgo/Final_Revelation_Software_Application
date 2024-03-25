@@ -15,7 +15,7 @@ public class disaPAPER : MonoBehaviour
     public Interactable interactable;
     public float interactionRange = 1.0f; // Set the range as needed
     public KeyCode interactKey = KeyCode.E;
-    public string playerUsername = "deokgoo";
+    public string playerUsername = "";
     public int currentlvl;
     public int paperCollected = 0;    // Number of papers collected
     public int keyCollected = 0;      // Number of keys collected
@@ -40,6 +40,7 @@ public class disaPAPER : MonoBehaviour
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
         MyImage = GameObject.FindWithTag("ImageFrame");
         ImageHolder = MyImage.transform.Find("ImageHolder").gameObject;
+        playerUsername = Menu_Script.userInput;
         if (paperText == null)
         {
             Debug.LogError("No GameObject with tag 'PaperText' found.");
@@ -57,15 +58,15 @@ public class disaPAPER : MonoBehaviour
         try
         {
             if (DialogueManager.Instance.isDialogueActive == false)
-                {
-                    audioPlayerPaper.Stop();
-                }
+            {
+                audioPlayerPaper.Stop();
+            }
         }
         catch (UnassignedReferenceException)
         {
             ;
         }
-        
+
     }
 
     public void Disappear()

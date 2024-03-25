@@ -76,11 +76,6 @@ public class OpenDoor : MonoBehaviour
         if (!torch1.isTorchOn && torch2.isTorchOn && !torch3.isTorchOn && torch4.isTorchOn) // if the torches are in the correct order, it should open
         {
             StartCoroutine(insertProgressPlayer("http://localhost/unity2/progressInsert.php", playerUsername, nextLvl, player_position_x, player_position_y, paperCollected, keyCollected, remainingHealth));
-
-            Image imageComponent = ImageHolder.GetComponent<Image>();
-            img1 = Resources.Load<Sprite>("Images/success"); // Replace with the actual path and sprite name without the extension
-            imageComponent.sprite = img1; // Assign the loaded sprite to the image component
-            ImageHolder.SetActive(true);
             Debug.Log("CONGRATULATIONS");
             SceneManager.LoadScene("Level2");
         }

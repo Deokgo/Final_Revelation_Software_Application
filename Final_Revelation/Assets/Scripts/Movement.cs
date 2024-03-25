@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     public TextMeshProUGUI paperText, keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
-    public string playerUsername = "deokgoo";
+    public string playerUsername = "";
     public string[] life = { "Life3", "Life2", "Life1" };
     public float delay = 3;
     float timer;
@@ -163,7 +163,7 @@ public class Movement : MonoBehaviour
         go = GameObject.FindWithTag("Player");
         rb = go.GetComponent<Rigidbody2D>();
         UserInput = GameObject.FindWithTag("UserInput");
-
+        playerUsername = Menu_Script.userInput;
         for (int i = 1; i < 3; i++)
         {
             lifeObject = GameObject.FindGameObjectWithTag(life[i]);
