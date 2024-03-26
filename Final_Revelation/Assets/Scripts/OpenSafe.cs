@@ -12,7 +12,7 @@ public class OpenSafe : MonoBehaviour
 {
     public GameObject go, UserInput, Input;
     public Animator safeAnimator;
-    public string playerUsername = "deokgoo";
+    private string playerUsername = Menu_Script.userInput;
     public TextMeshProUGUI keyText;
 
     // Start is called before the first frame update

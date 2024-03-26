@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
                 SetBoolValue();
             }
         }
-        // Debug.Log(go.transform.position);
+        Debug.Log(go.transform.position);
     }
     void RespawnPlayer()
     {
