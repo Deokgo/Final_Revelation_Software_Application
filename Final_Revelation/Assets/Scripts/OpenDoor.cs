@@ -18,14 +18,6 @@ public class OpenDoor : MonoBehaviour
     private Sprite img1;
     public GameObject MyImage;
     public GameObject ImageHolder;
-    // public bool isTorch1Lit = true;
-    // public bool isTorch2Lit = false;
-    // public bool isTorch3Lit = true;
-    // public bool isTorch4Lit = false;
-    // public SpriteRenderer torch1;
-    // public SpriteRenderer torch2;
-    // public SpriteRenderer torch3;
-    // public SpriteRenderer torch4;
     public ToggleTorch torch1;
     public ToggleTorch torch2;
     public ToggleTorch torch3;

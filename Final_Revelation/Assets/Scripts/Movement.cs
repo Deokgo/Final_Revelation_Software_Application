@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     public TextMeshProUGUI paperText, keyText;
     protected bool idle = false, run = false, grab_item = false, dead = false;
     public string input;
-    public string playerUsername = Menu_Script.userInput;
+    private string playerUsername = Menu_Script.userInput;
     public string[] life = { "Life3", "Life2", "Life1" };
     public float delay = 3;
     float timer;
@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
     }
     void Start()
     {
-
+        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
     }
     // Update is called once per frame
     void Update()
@@ -115,6 +115,7 @@ public class Movement : MonoBehaviour
                 SetBoolValue();
             }
         }
+        // Debug.Log(go.transform.position);
     }
     void RespawnPlayer()
     {
@@ -169,7 +170,7 @@ public class Movement : MonoBehaviour
             lifeObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        StartCoroutine(getPlayerLevel("http://localhost/unity2/getPlayerLevel.php", playerUsername));
+
     }
 
     void Run()

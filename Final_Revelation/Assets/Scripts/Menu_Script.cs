@@ -8,6 +8,7 @@ public class Menu_Script : MonoBehaviour
 {
     public static string userInput;
     public static int currentlvl = 0;
+    public static double startingPositionX = -0.08565235, startingPositionY = 0.01465917;
 
     public void ResumeGame(string username)
     {
@@ -34,9 +35,9 @@ public class Menu_Script : MonoBehaviour
     {
         Application.Quit();
     }
-    public void ReadInput()
+    public void ReadInput(string username)
     {
-        //userInput = username; //may times na dumodoble ung input sa database dahil dito I think...
+        userInput = username; //may times na dumodoble ung input sa database dahil dito I think...
         StartCoroutine(searchUsername("http://localhost/unity2/searchUsername.php", userInput));
         Debug.Log(userInput);
     }
@@ -258,7 +259,7 @@ public class Menu_Script : MonoBehaviour
             }
             else
             {
-                Debug.Log("Received: " + uwr.downloadHandler.text);
+                // Debug.Log("Received: " + uwr.downloadHandler.text);
                 if (uwr.downloadHandler.text == "Username inserted successfully.")
                     StartCoroutine(storePlayerProgress("http://localhost/unity2/progressInsert.php", username, 1));
                 SceneManager.LoadScene("Level1");
