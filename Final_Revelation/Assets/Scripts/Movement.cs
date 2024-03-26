@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
                 SetBoolValue();
             }
         }
-        Debug.Log(go.transform.position);
+        //Debug.Log(go.transform.position);
     }
     void RespawnPlayer()
     {
@@ -216,6 +216,16 @@ public class Movement : MonoBehaviour
         Vector3 currentPosition = transform.position;
         float xPosition = currentPosition.x;
         float yPosition = currentPosition.y;
+        paperCollected = int.Parse(paperText.text.Split('/')[0]);
+        if(currentlvl == 3)
+        {
+            keyCollected = int.Parse(keyText.text.Split('/')[0]);
+        }
+        else
+        {
+            keyCollected = 0;
+        }
+        paperCollected = int.Parse(paperText.text.Split('/')[0]);
         StartCoroutine(updatePlayer("http://localhost/unity2/progressUpdate.php", playerUsername, currentlvl, xPosition, yPosition, paperCollected, keyCollected, remainingHealth));
     }
     public void RestartLevelProgress()
