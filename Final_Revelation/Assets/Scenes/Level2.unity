@@ -607,7 +607,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   interactionRange: 1
   interactKey: 101
-  playerUsername: deokgoo
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
@@ -32198,7 +32197,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   interactionRange: 1
   interactKey: 101
-  playerUsername: deokgoo
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
@@ -33849,7 +33847,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   interactionRange: 1
   interactKey: 101
-  playerUsername: deokgoo
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
@@ -34159,15 +34156,6 @@ MonoBehaviour:
         name: '*'
       line: As Rodolfo enters another room, he is startled by the presence of a grim
         reaper. What puzzle awaits him this time?
-    - character:
-        name: '*'
-      line: (a mysterious person appeared in the room)
-    - character:
-        name: Rodolfo
-      line: Who is that?
-    - character:
-        name: Rodolfo
-      line: Let's ask him.
 --- !u!1 &843211051
 GameObject:
   m_ObjectHideFlags: 0
@@ -34686,7 +34674,6 @@ MonoBehaviour:
   paperText: {fileID: 0}
   keyText: {fileID: 0}
   input: 
-  playerUsername: deokgoo
   life:
   - Life3
   - Life2
@@ -35460,7 +35447,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   interactionRange: 1
   interactKey: 101
-  playerUsername: deokgoo
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
@@ -88938,7 +88924,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   interactionRange: 1
   interactKey: 101
-  playerUsername: deokgoo
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
@@ -89097,7 +89082,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   interactionRange: 1
   interactKey: 101
-  playerUsername: deokgoo
   currentlvl: 0
   paperCollected: 0
   keyCollected: 0
