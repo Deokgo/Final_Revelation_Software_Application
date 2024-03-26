@@ -216,7 +216,7 @@ public class Menu_Script : MonoBehaviour
             {
                 Debug.Log("1Received: " + uwr.downloadHandler.text);
             }
-            if (uwr.downloadHandler.text == "Username not found.")
+            if ((uwr.downloadHandler.text == "Username not found.") && !(string.IsNullOrEmpty(username)))
                 StartCoroutine(insertPlayer("http://localhost/unity2/insertUsername.php", username));
             else
             {
