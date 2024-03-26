@@ -22,18 +22,18 @@ public class OpenSafe : MonoBehaviour
         safeAnimator = GameObject.FindWithTag("Safe").GetComponent<Animator>();
         UserInput = GameObject.FindWithTag("UserInput");
         Input = GameObject.FindWithTag("Input");
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (keyText.text == "1/1")
         {
             safeAnimator.SetBool("closed", false);
             safeAnimator.SetBool("opened", false);
             safeAnimator.SetBool("empty", true);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     public void SafePrompt()
     {
